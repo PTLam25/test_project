@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../injection.dart';
+import '../authentication/application/authentication_bloc.dart';
 import 'presentation/routes/app_router.gr.dart';
 import 'presentation/themes/themes.dart' as themes;
 
@@ -17,11 +20,18 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      routerDelegate: _appRouter.delegate(),
-      routeInformationParser: _appRouter.defaultRouteParser(),
-      theme: themes.appThemeData,
+    return MultiBlocProvider(
+      providers: <BlocProvider>[
+        BlocProvider(
+          create: (context) => getIt<AuthenticationBloc>(),
+        ),
+      ],
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        routerDelegate: _appRouter.delegate(),
+        routeInformationParser: _appRouter.defaultRouteParser(),
+        theme: themes.appThemeData,
+      ),
     );
   }
 
