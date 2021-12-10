@@ -1,52 +1,122 @@
+import 'dart:convert';
+
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../domain/authentication_failures/authentication_failures.dart';
 import '../domain/i_authentication_service.dart';
 import '../domain/user/user.dart';
-import 'shared_prefs_db.dart';
+
+const _mockConfirmationCode = '1234';
 
 @LazySingleton(as: AuthenticationService)
 class ImplAuthenticationService implements AuthenticationService {
-  final SharedPrefsDb _sharedPrefsDb;
+  static const String _currentUserKey = 'current_user';
+  static const String _isSignInKey = 'is_sign_in';
 
-  ImplAuthenticationService(this._sharedPrefsDb);
+  final SharedPreferences _sharedPreferences;
+
+  ImplAuthenticationService(this._sharedPreferences);
 
   @override
-  Future<Either<AuthenticationFailures, User>> getCurrentUser() {
-    // TODO: implement getCurrentUser
-    throw UnimplementedError();
+  Future<Either<AuthenticationFailures, User>> getCurrentUser() async {
+    try {
+      final isSignIn = _sharedPreferences.getBool(_isSignInKey) ?? false;
+      final encodedUserMap = _sharedPreferences.getString(_currentUserKey);
+
+      if (encodedUserMap == null) {
+        return left(
+          const AuthenticationFailures.unauthorized(isRegistered: false),
+        );
+      }
+
+      if (isSignIn) {
+        final user = User.fromJson(json.decode(encodedUserMap));
+
+        return right(user);
+      }
+
+      return left(
+        const AuthenticationFailures.unauthorized(isRegistered: true),
+      );
+    } catch (e) {
+      return left(const AuthenticationFailures.unexpected());
+    }
   }
 
   @override
-  Future<Either<AuthenticationFailures, void>> confirmCode(
+  Future<Either<AuthenticationFailures, Unit>> confirmCode(
     String verificationCode,
-  ) {
-    // TODO: implement confirmCode
-    throw UnimplementedError();
+  ) async {
+    try {
+      if (verificationCode == _mockConfirmationCode) {
+        return right(unit);
+      }
+
+      return left(
+        const AuthenticationFailures.unauthorized(isRegistered: false),
+      );
+    } catch (e) {
+      return left(const AuthenticationFailures.unexpected());
+    }
   }
 
   @override
-  Future<void> logout() {
-    // TODO: implement logout
-    throw UnimplementedError();
+  Future<Either<AuthenticationFailures, Unit>> logout() async {
+    try {
+      _sharedPreferences.setBool(_isSignInKey, false);
+
+      return right(unit);
+    } catch (e) {
+      return left(const AuthenticationFailures.unexpected());
+    }
   }
 
   @override
   Future<Either<AuthenticationFailures, User>> signIn({
     required String phoneNumber,
     required String password,
-  }) {
-    // TODO: implement signIn
-    throw UnimplementedError();
+  }) async {
+    try {
+      final encodedUserMap = _sharedPreferences.getString(_currentUserKey);
+
+      if (encodedUserMap != null) {
+        final user = User.fromJson(json.decode(encodedUserMap));
+
+        if (user.phoneNumber == phoneNumber && user.password == password) {
+          return right(user);
+        }
+      }
+
+      return left(
+        const AuthenticationFailures.invalidPhoneNumberAndPasswordCombination(),
+      );
+    } catch (e) {
+      return left(const AuthenticationFailures.unexpected());
+    }
   }
 
   @override
   Future<Either<AuthenticationFailures, User>> signUp({
     required String phoneNumber,
     required String password,
-  }) {
-    // TODO: implement signUp
-    throw UnimplementedError();
+  }) async {
+    try {
+      final newUser = User(phoneNumber: phoneNumber, password: password);
+
+      _sharedPreferences.setString(
+        _currentUserKey,
+        json.encode(newUser.toJson()),
+      );
+      _sharedPreferences.setBool(
+        _isSignInKey,
+        true,
+      );
+
+      return right(newUser);
+    } catch (e) {
+      return left(const AuthenticationFailures.unexpected());
+    }
   }
 }

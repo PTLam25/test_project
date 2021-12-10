@@ -30,8 +30,14 @@ class _$AuthenticationFailuresTearOff {
     return const _PhoneNumberAlreadyExists();
   }
 
-  _PhoneNumberAlreadyExists unauthorized() {
-    return const _PhoneNumberAlreadyExists();
+  _Unauthorized unauthorized({required bool isRegistered}) {
+    return _Unauthorized(
+      isRegistered: isRegistered,
+    );
+  }
+
+  _Unexpected unexpected() {
+    return const _Unexpected();
   }
 }
 
@@ -45,7 +51,8 @@ mixin _$AuthenticationFailures {
     required TResult Function() invalidCode,
     required TResult Function() invalidPhoneNumberAndPasswordCombination,
     required TResult Function() phoneNumberAlreadyExists,
-    required TResult Function() unauthorized,
+    required TResult Function(bool isRegistered) unauthorized,
+    required TResult Function() unexpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -53,7 +60,8 @@ mixin _$AuthenticationFailures {
     TResult Function()? invalidCode,
     TResult Function()? invalidPhoneNumberAndPasswordCombination,
     TResult Function()? phoneNumberAlreadyExists,
-    TResult Function()? unauthorized,
+    TResult Function(bool isRegistered)? unauthorized,
+    TResult Function()? unexpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -61,7 +69,8 @@ mixin _$AuthenticationFailures {
     TResult Function()? invalidCode,
     TResult Function()? invalidPhoneNumberAndPasswordCombination,
     TResult Function()? phoneNumberAlreadyExists,
-    TResult Function()? unauthorized,
+    TResult Function(bool isRegistered)? unauthorized,
+    TResult Function()? unexpected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -72,7 +81,8 @@ mixin _$AuthenticationFailures {
         invalidPhoneNumberAndPasswordCombination,
     required TResult Function(_PhoneNumberAlreadyExists value)
         phoneNumberAlreadyExists,
-    required TResult Function(_PhoneNumberAlreadyExists value) unauthorized,
+    required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_Unexpected value) unexpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,7 +91,8 @@ mixin _$AuthenticationFailures {
     TResult Function(_InvalidPhoneNumberAndPasswordCombination value)?
         invalidPhoneNumberAndPasswordCombination,
     TResult Function(_PhoneNumberAlreadyExists value)? phoneNumberAlreadyExists,
-    TResult Function(_PhoneNumberAlreadyExists value)? unauthorized,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_Unexpected value)? unexpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -90,7 +101,8 @@ mixin _$AuthenticationFailures {
     TResult Function(_InvalidPhoneNumberAndPasswordCombination value)?
         invalidPhoneNumberAndPasswordCombination,
     TResult Function(_PhoneNumberAlreadyExists value)? phoneNumberAlreadyExists,
-    TResult Function(_PhoneNumberAlreadyExists value)? unauthorized,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_Unexpected value)? unexpected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -157,7 +169,8 @@ class _$_InvalidCode implements _InvalidCode {
     required TResult Function() invalidCode,
     required TResult Function() invalidPhoneNumberAndPasswordCombination,
     required TResult Function() phoneNumberAlreadyExists,
-    required TResult Function() unauthorized,
+    required TResult Function(bool isRegistered) unauthorized,
+    required TResult Function() unexpected,
   }) {
     return invalidCode();
   }
@@ -168,7 +181,8 @@ class _$_InvalidCode implements _InvalidCode {
     TResult Function()? invalidCode,
     TResult Function()? invalidPhoneNumberAndPasswordCombination,
     TResult Function()? phoneNumberAlreadyExists,
-    TResult Function()? unauthorized,
+    TResult Function(bool isRegistered)? unauthorized,
+    TResult Function()? unexpected,
   }) {
     return invalidCode?.call();
   }
@@ -179,7 +193,8 @@ class _$_InvalidCode implements _InvalidCode {
     TResult Function()? invalidCode,
     TResult Function()? invalidPhoneNumberAndPasswordCombination,
     TResult Function()? phoneNumberAlreadyExists,
-    TResult Function()? unauthorized,
+    TResult Function(bool isRegistered)? unauthorized,
+    TResult Function()? unexpected,
     required TResult orElse(),
   }) {
     if (invalidCode != null) {
@@ -196,7 +211,8 @@ class _$_InvalidCode implements _InvalidCode {
         invalidPhoneNumberAndPasswordCombination,
     required TResult Function(_PhoneNumberAlreadyExists value)
         phoneNumberAlreadyExists,
-    required TResult Function(_PhoneNumberAlreadyExists value) unauthorized,
+    required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_Unexpected value) unexpected,
   }) {
     return invalidCode(this);
   }
@@ -208,7 +224,8 @@ class _$_InvalidCode implements _InvalidCode {
     TResult Function(_InvalidPhoneNumberAndPasswordCombination value)?
         invalidPhoneNumberAndPasswordCombination,
     TResult Function(_PhoneNumberAlreadyExists value)? phoneNumberAlreadyExists,
-    TResult Function(_PhoneNumberAlreadyExists value)? unauthorized,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_Unexpected value)? unexpected,
   }) {
     return invalidCode?.call(this);
   }
@@ -220,7 +237,8 @@ class _$_InvalidCode implements _InvalidCode {
     TResult Function(_InvalidPhoneNumberAndPasswordCombination value)?
         invalidPhoneNumberAndPasswordCombination,
     TResult Function(_PhoneNumberAlreadyExists value)? phoneNumberAlreadyExists,
-    TResult Function(_PhoneNumberAlreadyExists value)? unauthorized,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_Unexpected value)? unexpected,
     required TResult orElse(),
   }) {
     if (invalidCode != null) {
@@ -284,7 +302,8 @@ class _$_InvalidPhoneNumberAndPasswordCombination
     required TResult Function() invalidCode,
     required TResult Function() invalidPhoneNumberAndPasswordCombination,
     required TResult Function() phoneNumberAlreadyExists,
-    required TResult Function() unauthorized,
+    required TResult Function(bool isRegistered) unauthorized,
+    required TResult Function() unexpected,
   }) {
     return invalidPhoneNumberAndPasswordCombination();
   }
@@ -295,7 +314,8 @@ class _$_InvalidPhoneNumberAndPasswordCombination
     TResult Function()? invalidCode,
     TResult Function()? invalidPhoneNumberAndPasswordCombination,
     TResult Function()? phoneNumberAlreadyExists,
-    TResult Function()? unauthorized,
+    TResult Function(bool isRegistered)? unauthorized,
+    TResult Function()? unexpected,
   }) {
     return invalidPhoneNumberAndPasswordCombination?.call();
   }
@@ -306,7 +326,8 @@ class _$_InvalidPhoneNumberAndPasswordCombination
     TResult Function()? invalidCode,
     TResult Function()? invalidPhoneNumberAndPasswordCombination,
     TResult Function()? phoneNumberAlreadyExists,
-    TResult Function()? unauthorized,
+    TResult Function(bool isRegistered)? unauthorized,
+    TResult Function()? unexpected,
     required TResult orElse(),
   }) {
     if (invalidPhoneNumberAndPasswordCombination != null) {
@@ -323,7 +344,8 @@ class _$_InvalidPhoneNumberAndPasswordCombination
         invalidPhoneNumberAndPasswordCombination,
     required TResult Function(_PhoneNumberAlreadyExists value)
         phoneNumberAlreadyExists,
-    required TResult Function(_PhoneNumberAlreadyExists value) unauthorized,
+    required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_Unexpected value) unexpected,
   }) {
     return invalidPhoneNumberAndPasswordCombination(this);
   }
@@ -335,7 +357,8 @@ class _$_InvalidPhoneNumberAndPasswordCombination
     TResult Function(_InvalidPhoneNumberAndPasswordCombination value)?
         invalidPhoneNumberAndPasswordCombination,
     TResult Function(_PhoneNumberAlreadyExists value)? phoneNumberAlreadyExists,
-    TResult Function(_PhoneNumberAlreadyExists value)? unauthorized,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_Unexpected value)? unexpected,
   }) {
     return invalidPhoneNumberAndPasswordCombination?.call(this);
   }
@@ -347,7 +370,8 @@ class _$_InvalidPhoneNumberAndPasswordCombination
     TResult Function(_InvalidPhoneNumberAndPasswordCombination value)?
         invalidPhoneNumberAndPasswordCombination,
     TResult Function(_PhoneNumberAlreadyExists value)? phoneNumberAlreadyExists,
-    TResult Function(_PhoneNumberAlreadyExists value)? unauthorized,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_Unexpected value)? unexpected,
     required TResult orElse(),
   }) {
     if (invalidPhoneNumberAndPasswordCombination != null) {
@@ -409,7 +433,8 @@ class _$_PhoneNumberAlreadyExists implements _PhoneNumberAlreadyExists {
     required TResult Function() invalidCode,
     required TResult Function() invalidPhoneNumberAndPasswordCombination,
     required TResult Function() phoneNumberAlreadyExists,
-    required TResult Function() unauthorized,
+    required TResult Function(bool isRegistered) unauthorized,
+    required TResult Function() unexpected,
   }) {
     return phoneNumberAlreadyExists();
   }
@@ -420,7 +445,8 @@ class _$_PhoneNumberAlreadyExists implements _PhoneNumberAlreadyExists {
     TResult Function()? invalidCode,
     TResult Function()? invalidPhoneNumberAndPasswordCombination,
     TResult Function()? phoneNumberAlreadyExists,
-    TResult Function()? unauthorized,
+    TResult Function(bool isRegistered)? unauthorized,
+    TResult Function()? unexpected,
   }) {
     return phoneNumberAlreadyExists?.call();
   }
@@ -431,7 +457,8 @@ class _$_PhoneNumberAlreadyExists implements _PhoneNumberAlreadyExists {
     TResult Function()? invalidCode,
     TResult Function()? invalidPhoneNumberAndPasswordCombination,
     TResult Function()? phoneNumberAlreadyExists,
-    TResult Function()? unauthorized,
+    TResult Function(bool isRegistered)? unauthorized,
+    TResult Function()? unexpected,
     required TResult orElse(),
   }) {
     if (phoneNumberAlreadyExists != null) {
@@ -448,7 +475,8 @@ class _$_PhoneNumberAlreadyExists implements _PhoneNumberAlreadyExists {
         invalidPhoneNumberAndPasswordCombination,
     required TResult Function(_PhoneNumberAlreadyExists value)
         phoneNumberAlreadyExists,
-    required TResult Function(_PhoneNumberAlreadyExists value) unauthorized,
+    required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_Unexpected value) unexpected,
   }) {
     return phoneNumberAlreadyExists(this);
   }
@@ -460,7 +488,8 @@ class _$_PhoneNumberAlreadyExists implements _PhoneNumberAlreadyExists {
     TResult Function(_InvalidPhoneNumberAndPasswordCombination value)?
         invalidPhoneNumberAndPasswordCombination,
     TResult Function(_PhoneNumberAlreadyExists value)? phoneNumberAlreadyExists,
-    TResult Function(_PhoneNumberAlreadyExists value)? unauthorized,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_Unexpected value)? unexpected,
   }) {
     return phoneNumberAlreadyExists?.call(this);
   }
@@ -472,7 +501,8 @@ class _$_PhoneNumberAlreadyExists implements _PhoneNumberAlreadyExists {
     TResult Function(_InvalidPhoneNumberAndPasswordCombination value)?
         invalidPhoneNumberAndPasswordCombination,
     TResult Function(_PhoneNumberAlreadyExists value)? phoneNumberAlreadyExists,
-    TResult Function(_PhoneNumberAlreadyExists value)? unauthorized,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_Unexpected value)? unexpected,
     required TResult orElse(),
   }) {
     if (phoneNumberAlreadyExists != null) {
@@ -487,44 +517,67 @@ abstract class _PhoneNumberAlreadyExists implements AuthenticationFailures {
 }
 
 /// @nodoc
-abstract class _$PhoneNumberAlreadyExistsCopyWith<$Res> {
-  factory _$PhoneNumberAlreadyExistsCopyWith(_PhoneNumberAlreadyExists value,
-          $Res Function(_PhoneNumberAlreadyExists) then) =
-      __$PhoneNumberAlreadyExistsCopyWithImpl<$Res>;
+abstract class _$UnauthorizedCopyWith<$Res> {
+  factory _$UnauthorizedCopyWith(
+          _Unauthorized value, $Res Function(_Unauthorized) then) =
+      __$UnauthorizedCopyWithImpl<$Res>;
+  $Res call({bool isRegistered});
 }
 
 /// @nodoc
-class __$PhoneNumberAlreadyExistsCopyWithImpl<$Res>
+class __$UnauthorizedCopyWithImpl<$Res>
     extends _$AuthenticationFailuresCopyWithImpl<$Res>
-    implements _$PhoneNumberAlreadyExistsCopyWith<$Res> {
-  __$PhoneNumberAlreadyExistsCopyWithImpl(_PhoneNumberAlreadyExists _value,
-      $Res Function(_PhoneNumberAlreadyExists) _then)
-      : super(_value, (v) => _then(v as _PhoneNumberAlreadyExists));
+    implements _$UnauthorizedCopyWith<$Res> {
+  __$UnauthorizedCopyWithImpl(
+      _Unauthorized _value, $Res Function(_Unauthorized) _then)
+      : super(_value, (v) => _then(v as _Unauthorized));
 
   @override
-  _PhoneNumberAlreadyExists get _value =>
-      super._value as _PhoneNumberAlreadyExists;
+  _Unauthorized get _value => super._value as _Unauthorized;
+
+  @override
+  $Res call({
+    Object? isRegistered = freezed,
+  }) {
+    return _then(_Unauthorized(
+      isRegistered: isRegistered == freezed
+          ? _value.isRegistered
+          : isRegistered // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$_PhoneNumberAlreadyExists implements _PhoneNumberAlreadyExists {
-  const _$_PhoneNumberAlreadyExists();
+class _$_Unauthorized implements _Unauthorized {
+  const _$_Unauthorized({required this.isRegistered});
+
+  @override
+  final bool isRegistered;
 
   @override
   String toString() {
-    return 'AuthenticationFailures.unauthorized()';
+    return 'AuthenticationFailures.unauthorized(isRegistered: $isRegistered)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PhoneNumberAlreadyExists);
+            other is _Unauthorized &&
+            const DeepCollectionEquality()
+                .equals(other.isRegistered, isRegistered));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(isRegistered));
+
+  @JsonKey(ignore: true)
+  @override
+  _$UnauthorizedCopyWith<_Unauthorized> get copyWith =>
+      __$UnauthorizedCopyWithImpl<_Unauthorized>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -532,9 +585,10 @@ class _$_PhoneNumberAlreadyExists implements _PhoneNumberAlreadyExists {
     required TResult Function() invalidCode,
     required TResult Function() invalidPhoneNumberAndPasswordCombination,
     required TResult Function() phoneNumberAlreadyExists,
-    required TResult Function() unauthorized,
+    required TResult Function(bool isRegistered) unauthorized,
+    required TResult Function() unexpected,
   }) {
-    return unauthorized();
+    return unauthorized(isRegistered);
   }
 
   @override
@@ -543,9 +597,10 @@ class _$_PhoneNumberAlreadyExists implements _PhoneNumberAlreadyExists {
     TResult Function()? invalidCode,
     TResult Function()? invalidPhoneNumberAndPasswordCombination,
     TResult Function()? phoneNumberAlreadyExists,
-    TResult Function()? unauthorized,
+    TResult Function(bool isRegistered)? unauthorized,
+    TResult Function()? unexpected,
   }) {
-    return unauthorized?.call();
+    return unauthorized?.call(isRegistered);
   }
 
   @override
@@ -554,11 +609,12 @@ class _$_PhoneNumberAlreadyExists implements _PhoneNumberAlreadyExists {
     TResult Function()? invalidCode,
     TResult Function()? invalidPhoneNumberAndPasswordCombination,
     TResult Function()? phoneNumberAlreadyExists,
-    TResult Function()? unauthorized,
+    TResult Function(bool isRegistered)? unauthorized,
+    TResult Function()? unexpected,
     required TResult orElse(),
   }) {
     if (unauthorized != null) {
-      return unauthorized();
+      return unauthorized(isRegistered);
     }
     return orElse();
   }
@@ -571,7 +627,8 @@ class _$_PhoneNumberAlreadyExists implements _PhoneNumberAlreadyExists {
         invalidPhoneNumberAndPasswordCombination,
     required TResult Function(_PhoneNumberAlreadyExists value)
         phoneNumberAlreadyExists,
-    required TResult Function(_PhoneNumberAlreadyExists value) unauthorized,
+    required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_Unexpected value) unexpected,
   }) {
     return unauthorized(this);
   }
@@ -583,7 +640,8 @@ class _$_PhoneNumberAlreadyExists implements _PhoneNumberAlreadyExists {
     TResult Function(_InvalidPhoneNumberAndPasswordCombination value)?
         invalidPhoneNumberAndPasswordCombination,
     TResult Function(_PhoneNumberAlreadyExists value)? phoneNumberAlreadyExists,
-    TResult Function(_PhoneNumberAlreadyExists value)? unauthorized,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_Unexpected value)? unexpected,
   }) {
     return unauthorized?.call(this);
   }
@@ -595,7 +653,8 @@ class _$_PhoneNumberAlreadyExists implements _PhoneNumberAlreadyExists {
     TResult Function(_InvalidPhoneNumberAndPasswordCombination value)?
         invalidPhoneNumberAndPasswordCombination,
     TResult Function(_PhoneNumberAlreadyExists value)? phoneNumberAlreadyExists,
-    TResult Function(_PhoneNumberAlreadyExists value)? unauthorized,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_Unexpected value)? unexpected,
     required TResult orElse(),
   }) {
     if (unauthorized != null) {
@@ -605,6 +664,138 @@ class _$_PhoneNumberAlreadyExists implements _PhoneNumberAlreadyExists {
   }
 }
 
-abstract class _PhoneNumberAlreadyExists implements AuthenticationFailures {
-  const factory _PhoneNumberAlreadyExists() = _$_PhoneNumberAlreadyExists;
+abstract class _Unauthorized implements AuthenticationFailures {
+  const factory _Unauthorized({required bool isRegistered}) = _$_Unauthorized;
+
+  bool get isRegistered;
+  @JsonKey(ignore: true)
+  _$UnauthorizedCopyWith<_Unauthorized> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$UnexpectedCopyWith<$Res> {
+  factory _$UnexpectedCopyWith(
+          _Unexpected value, $Res Function(_Unexpected) then) =
+      __$UnexpectedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$UnexpectedCopyWithImpl<$Res>
+    extends _$AuthenticationFailuresCopyWithImpl<$Res>
+    implements _$UnexpectedCopyWith<$Res> {
+  __$UnexpectedCopyWithImpl(
+      _Unexpected _value, $Res Function(_Unexpected) _then)
+      : super(_value, (v) => _then(v as _Unexpected));
+
+  @override
+  _Unexpected get _value => super._value as _Unexpected;
+}
+
+/// @nodoc
+
+class _$_Unexpected implements _Unexpected {
+  const _$_Unexpected();
+
+  @override
+  String toString() {
+    return 'AuthenticationFailures.unexpected()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Unexpected);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() invalidCode,
+    required TResult Function() invalidPhoneNumberAndPasswordCombination,
+    required TResult Function() phoneNumberAlreadyExists,
+    required TResult Function(bool isRegistered) unauthorized,
+    required TResult Function() unexpected,
+  }) {
+    return unexpected();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? invalidCode,
+    TResult Function()? invalidPhoneNumberAndPasswordCombination,
+    TResult Function()? phoneNumberAlreadyExists,
+    TResult Function(bool isRegistered)? unauthorized,
+    TResult Function()? unexpected,
+  }) {
+    return unexpected?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? invalidCode,
+    TResult Function()? invalidPhoneNumberAndPasswordCombination,
+    TResult Function()? phoneNumberAlreadyExists,
+    TResult Function(bool isRegistered)? unauthorized,
+    TResult Function()? unexpected,
+    required TResult orElse(),
+  }) {
+    if (unexpected != null) {
+      return unexpected();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InvalidCode value) invalidCode,
+    required TResult Function(_InvalidPhoneNumberAndPasswordCombination value)
+        invalidPhoneNumberAndPasswordCombination,
+    required TResult Function(_PhoneNumberAlreadyExists value)
+        phoneNumberAlreadyExists,
+    required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_Unexpected value) unexpected,
+  }) {
+    return unexpected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_InvalidCode value)? invalidCode,
+    TResult Function(_InvalidPhoneNumberAndPasswordCombination value)?
+        invalidPhoneNumberAndPasswordCombination,
+    TResult Function(_PhoneNumberAlreadyExists value)? phoneNumberAlreadyExists,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_Unexpected value)? unexpected,
+  }) {
+    return unexpected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InvalidCode value)? invalidCode,
+    TResult Function(_InvalidPhoneNumberAndPasswordCombination value)?
+        invalidPhoneNumberAndPasswordCombination,
+    TResult Function(_PhoneNumberAlreadyExists value)? phoneNumberAlreadyExists,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_Unexpected value)? unexpected,
+    required TResult orElse(),
+  }) {
+    if (unexpected != null) {
+      return unexpected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Unexpected implements AuthenticationFailures {
+  const factory _Unexpected() = _$_Unexpected;
 }

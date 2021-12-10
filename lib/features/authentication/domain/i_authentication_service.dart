@@ -16,9 +16,9 @@ abstract class AuthenticationService {
     required String password,
   });
 
-  Future<Either<AuthenticationFailures, void>> confirmCode(
+  Future<Either<AuthenticationFailures, Unit>> confirmCode(
     String verificationCode,
   );
 
-  Future<void> logout();
+  Future<Either<AuthenticationFailures, Unit>> logout();
 }
