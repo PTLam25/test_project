@@ -10,19 +10,16 @@ import '../domain/user/user.dart';
 
 const _mockConfirmationCode = '1234';
 
-@LazySingleton(as: AuthenticationService)
+@Singleton(as: AuthenticationService)
 class ImplAuthenticationService implements AuthenticationService {
   static const String _currentUserKey = 'current_user';
   static const String _isSignInKey = 'is_sign_in';
 
-  final SharedPreferences _sharedPreferences;
-
-  ImplAuthenticationService(this._sharedPreferences);
-
   @override
   Future<Either<AuthenticationFailures, User>> getCurrentUser() async {
     try {
-      final isSignIn = _sharedPreferences.getBool(_isSignInKey) ?? false;
+      final _sharedPreferences = await SharedPreferences.getInstance();
+
       final encodedUserMap = _sharedPreferences.getString(_currentUserKey);
 
       if (encodedUserMap == null) {
@@ -30,6 +27,8 @@ class ImplAuthenticationService implements AuthenticationService {
           const AuthenticationFailures.unauthorized(isRegistered: false),
         );
       }
+
+      final isSignIn = _sharedPreferences.getBool(_isSignInKey) ?? false;
 
       if (isSignIn) {
         final user = User.fromJson(json.decode(encodedUserMap));
@@ -65,6 +64,8 @@ class ImplAuthenticationService implements AuthenticationService {
   @override
   Future<Either<AuthenticationFailures, Unit>> logout() async {
     try {
+      final _sharedPreferences = await SharedPreferences.getInstance();
+
       _sharedPreferences.setBool(_isSignInKey, false);
 
       return right(unit);
@@ -79,6 +80,8 @@ class ImplAuthenticationService implements AuthenticationService {
     required String password,
   }) async {
     try {
+      final _sharedPreferences = await SharedPreferences.getInstance();
+
       final encodedUserMap = _sharedPreferences.getString(_currentUserKey);
 
       if (encodedUserMap != null) {
@@ -103,6 +106,8 @@ class ImplAuthenticationService implements AuthenticationService {
     required String password,
   }) async {
     try {
+      final _sharedPreferences = await SharedPreferences.getInstance();
+
       final newUser = User(phoneNumber: phoneNumber, password: password);
 
       _sharedPreferences.setString(

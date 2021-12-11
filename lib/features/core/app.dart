@@ -22,8 +22,11 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: <BlocProvider>[
-        BlocProvider(
-          create: (context) => getIt<AuthenticationBloc>(),
+        BlocProvider<AuthenticationBloc>(
+          create: (_) => getIt<AuthenticationBloc>()
+            ..add(
+              const AuthenticationEvent.checkAuthenticationStatus(),
+            ),
         ),
       ],
       child: MaterialApp.router(

@@ -11,8 +11,8 @@
 import 'package:auto_route/auto_route.dart' as _i6;
 import 'package:flutter/material.dart' as _i7;
 
-import '../../../authentication/presentation/login_page.dart' as _i3;
 import '../../../authentication/presentation/password_input_page.dart' as _i5;
+import '../../../authentication/presentation/phone_input_page.dart' as _i3;
 import '../../../authentication/presentation/sms_code_confirmation_page.dart'
     as _i4;
 import '../../../home/presentation/home_page.dart' as _i2;
@@ -32,9 +32,9 @@ class AppRouter extends _i6.RootStackRouter {
       return _i6.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i2.HomePage());
     },
-    LoginRoute.name: (routeData) {
+    PhoneInputRoute.name: (routeData) {
       return _i6.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i3.LoginPage());
+          routeData: routeData, child: const _i3.PhoneInputPage());
     },
     SmsCodeConfirmationRoute.name: (routeData) {
       return _i6.MaterialPageX<dynamic>(
@@ -50,7 +50,7 @@ class AppRouter extends _i6.RootStackRouter {
   List<_i6.RouteConfig> get routes => [
         _i6.RouteConfig(SplashRoute.name, path: '/'),
         _i6.RouteConfig(HomeRoute.name, path: '/home'),
-        _i6.RouteConfig(LoginRoute.name, path: '/login'),
+        _i6.RouteConfig(PhoneInputRoute.name, path: '/phone-input'),
         _i6.RouteConfig(SmsCodeConfirmationRoute.name,
             path: '/sms-code-confirmation'),
         _i6.RouteConfig(PasswordInputRoute.name, path: '/password-input')
@@ -71,11 +71,11 @@ class HomeRoute extends _i6.PageRouteInfo<void> {
   static const String name = 'HomeRoute';
 }
 
-/// generated route for [_i3.LoginPage]
-class LoginRoute extends _i6.PageRouteInfo<void> {
-  const LoginRoute() : super(name, path: '/login');
+/// generated route for [_i3.PhoneInputPage]
+class PhoneInputRoute extends _i6.PageRouteInfo<void> {
+  const PhoneInputRoute() : super(name, path: '/phone-input');
 
-  static const String name = 'LoginRoute';
+  static const String name = 'PhoneInputRoute';
 }
 
 /// generated route for [_i4.SmsCodeConfirmationPage]

@@ -15,7 +15,7 @@ part 'authentication_event.dart';
 
 part 'authentication_state.dart';
 
-@injectable
+@singleton
 class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
   final AuthenticationService authenticationService;
@@ -31,57 +31,75 @@ class AuthenticationBloc
   FutureOr<void> _onCheckAuthenticationStatus(
     CheckAuthenticationStatus event,
     Emitter<AuthenticationState> emit,
-  ) {
-    authenticationService.getCurrentUser().then(
-          (result) => result.fold(
-            (failure) => null,
-            (user) => emit(AuthenticationState.authenticated(user)),
-          ),
-        );
+  ) async {
+    final result = await authenticationService.getCurrentUser();
+
+    final newState = result.fold(
+      (failure) => failure.maybeWhen(
+        unauthorized: (isRegistered) => AuthenticationState.unauthenticated(
+          failure: failure,
+          isRegistered: isRegistered,
+        ),
+        orElse: () => AuthenticationState.unauthenticated(
+          failure: failure,
+        ),
+      ),
+      (user) => AuthenticationState.authenticated(user),
+    );
+
+    emit(newState);
   }
 
   FutureOr<void> _onLogout(
     Logout event,
     Emitter<AuthenticationState> emit,
-  ) {
-    authenticationService.logout().then((_) => emit(
-          const AuthenticationState.unauthenticatedNotRegistered(
-            AuthenticationFailures.invalidCode(),
-          ),
-        ));
+  ) async {
+    await authenticationService.logout();
+
+    emit(
+      const AuthenticationState.unauthenticated(
+        failure: AuthenticationFailures.unauthorized(isRegistered: false),
+        isRegistered: true,
+      ),
+    );
   }
 
   FutureOr<void> _onSignIn(
     SignIn event,
     Emitter<AuthenticationState> emit,
-  ) {
-    authenticationService
-        .signIn(
-          phoneNumber: event.phoneNumber,
-          password: event.password,
-        )
-        .then(
-          (result) => result.fold(
-            (failure) => null,
-            (user) => emit(AuthenticationState.authenticated(user)),
-          ),
-        );
+  ) async {
+    final result = await authenticationService.signIn(
+      phoneNumber: event.phoneNumber,
+      password: event.password,
+    );
+
+    final newState = result.fold(
+      (failure) => AuthenticationState.unauthenticated(
+        failure: failure,
+        isRegistered: true,
+      ),
+      (user) => AuthenticationState.authenticated(user),
+    );
+
+    emit(newState);
   }
 
   FutureOr<void> _onSignUp(
     SignUp event,
     Emitter<AuthenticationState> emit,
-  ) {
-    authenticationService
-        .signUp(
-          phoneNumber: event.phoneNumber,
-          password: event.password,
-        )
-        .then(
-          (result) => result.fold(
-            (failure) => null,
-            (user) => emit(AuthenticationState.authenticated(user)),
-          ),
-        );
+  ) async {
+    final result = await authenticationService.signUp(
+      phoneNumber: event.phoneNumber,
+      password: event.password,
+    );
+
+    final newState = result.fold(
+      (failure) => AuthenticationState.unauthenticated(
+        failure: failure,
+      ),
+      (user) => AuthenticationState.authenticated(user),
+    );
+
+    emit(newState);
   }
 }

@@ -6,11 +6,8 @@ class AuthenticationState with _$AuthenticationState {
 
   const factory AuthenticationState.authenticated(User user) = _Authenticated;
 
-  const factory AuthenticationState.unauthenticatedRegistered(
-    AuthenticationFailures failure,
-  ) = _UnauthenticatedRegistered;
-
-  const factory AuthenticationState.unauthenticatedNotRegistered(
-    AuthenticationFailures failure,
-  ) = _UnauthenticatedNotRegistered;
+  const factory AuthenticationState.unauthenticated({
+    required AuthenticationFailures failure,
+    @Default(false) bool isRegistered,
+  }) = _Unauthenticated;
 }

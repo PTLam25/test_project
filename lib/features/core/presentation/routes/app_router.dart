@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 
-import '../../../authentication/presentation/login_page.dart';
 import '../../../authentication/presentation/password_input_page.dart';
+import '../../../authentication/presentation/phone_input_page.dart';
 import '../../../authentication/presentation/sms_code_confirmation_page.dart';
 import '../../../home/presentation/home_page.dart';
 import '../../../splash/presentation/splash_page.dart';
@@ -21,8 +21,8 @@ part 'app_routes.dart';
       page: HomePage,
     ),
     AutoRoute(
-      path: AppRoutes.login,
-      page: LoginPage,
+      path: AppRoutes.phoneInput,
+      page: PhoneInputPage,
     ),
     AutoRoute(
       path: AppRoutes.smsCodeConfirmation,

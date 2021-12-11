@@ -688,17 +688,11 @@ class _$AuthenticationStateTearOff {
     );
   }
 
-  _UnauthenticatedRegistered unauthenticatedRegistered(
-      AuthenticationFailures failure) {
-    return _UnauthenticatedRegistered(
-      failure,
-    );
-  }
-
-  _UnauthenticatedNotRegistered unauthenticatedNotRegistered(
-      AuthenticationFailures failure) {
-    return _UnauthenticatedNotRegistered(
-      failure,
+  _Unauthenticated unauthenticated(
+      {required AuthenticationFailures failure, bool isRegistered = false}) {
+    return _Unauthenticated(
+      failure: failure,
+      isRegistered: isRegistered,
     );
   }
 }
@@ -712,28 +706,24 @@ mixin _$AuthenticationState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(User user) authenticated,
-    required TResult Function(AuthenticationFailures failure)
-        unauthenticatedRegistered,
-    required TResult Function(AuthenticationFailures failure)
-        unauthenticatedNotRegistered,
+    required TResult Function(AuthenticationFailures failure, bool isRegistered)
+        unauthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(User user)? authenticated,
-    TResult Function(AuthenticationFailures failure)? unauthenticatedRegistered,
-    TResult Function(AuthenticationFailures failure)?
-        unauthenticatedNotRegistered,
+    TResult Function(AuthenticationFailures failure, bool isRegistered)?
+        unauthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(User user)? authenticated,
-    TResult Function(AuthenticationFailures failure)? unauthenticatedRegistered,
-    TResult Function(AuthenticationFailures failure)?
-        unauthenticatedNotRegistered,
+    TResult Function(AuthenticationFailures failure, bool isRegistered)?
+        unauthenticated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -741,30 +731,21 @@ mixin _$AuthenticationState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Authenticated value) authenticated,
-    required TResult Function(_UnauthenticatedRegistered value)
-        unauthenticatedRegistered,
-    required TResult Function(_UnauthenticatedNotRegistered value)
-        unauthenticatedNotRegistered,
+    required TResult Function(_Unauthenticated value) unauthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Authenticated value)? authenticated,
-    TResult Function(_UnauthenticatedRegistered value)?
-        unauthenticatedRegistered,
-    TResult Function(_UnauthenticatedNotRegistered value)?
-        unauthenticatedNotRegistered,
+    TResult Function(_Unauthenticated value)? unauthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Authenticated value)? authenticated,
-    TResult Function(_UnauthenticatedRegistered value)?
-        unauthenticatedRegistered,
-    TResult Function(_UnauthenticatedNotRegistered value)?
-        unauthenticatedNotRegistered,
+    TResult Function(_Unauthenticated value)? unauthenticated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -828,10 +809,8 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(User user) authenticated,
-    required TResult Function(AuthenticationFailures failure)
-        unauthenticatedRegistered,
-    required TResult Function(AuthenticationFailures failure)
-        unauthenticatedNotRegistered,
+    required TResult Function(AuthenticationFailures failure, bool isRegistered)
+        unauthenticated,
   }) {
     return initial();
   }
@@ -841,9 +820,8 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(User user)? authenticated,
-    TResult Function(AuthenticationFailures failure)? unauthenticatedRegistered,
-    TResult Function(AuthenticationFailures failure)?
-        unauthenticatedNotRegistered,
+    TResult Function(AuthenticationFailures failure, bool isRegistered)?
+        unauthenticated,
   }) {
     return initial?.call();
   }
@@ -853,9 +831,8 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(User user)? authenticated,
-    TResult Function(AuthenticationFailures failure)? unauthenticatedRegistered,
-    TResult Function(AuthenticationFailures failure)?
-        unauthenticatedNotRegistered,
+    TResult Function(AuthenticationFailures failure, bool isRegistered)?
+        unauthenticated,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -869,10 +846,7 @@ class _$_Initial implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Authenticated value) authenticated,
-    required TResult Function(_UnauthenticatedRegistered value)
-        unauthenticatedRegistered,
-    required TResult Function(_UnauthenticatedNotRegistered value)
-        unauthenticatedNotRegistered,
+    required TResult Function(_Unauthenticated value) unauthenticated,
   }) {
     return initial(this);
   }
@@ -882,10 +856,7 @@ class _$_Initial implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Authenticated value)? authenticated,
-    TResult Function(_UnauthenticatedRegistered value)?
-        unauthenticatedRegistered,
-    TResult Function(_UnauthenticatedNotRegistered value)?
-        unauthenticatedNotRegistered,
+    TResult Function(_Unauthenticated value)? unauthenticated,
   }) {
     return initial?.call(this);
   }
@@ -895,10 +866,7 @@ class _$_Initial implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Authenticated value)? authenticated,
-    TResult Function(_UnauthenticatedRegistered value)?
-        unauthenticatedRegistered,
-    TResult Function(_UnauthenticatedNotRegistered value)?
-        unauthenticatedNotRegistered,
+    TResult Function(_Unauthenticated value)? unauthenticated,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -988,10 +956,8 @@ class _$_Authenticated implements _Authenticated {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(User user) authenticated,
-    required TResult Function(AuthenticationFailures failure)
-        unauthenticatedRegistered,
-    required TResult Function(AuthenticationFailures failure)
-        unauthenticatedNotRegistered,
+    required TResult Function(AuthenticationFailures failure, bool isRegistered)
+        unauthenticated,
   }) {
     return authenticated(user);
   }
@@ -1001,9 +967,8 @@ class _$_Authenticated implements _Authenticated {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(User user)? authenticated,
-    TResult Function(AuthenticationFailures failure)? unauthenticatedRegistered,
-    TResult Function(AuthenticationFailures failure)?
-        unauthenticatedNotRegistered,
+    TResult Function(AuthenticationFailures failure, bool isRegistered)?
+        unauthenticated,
   }) {
     return authenticated?.call(user);
   }
@@ -1013,9 +978,8 @@ class _$_Authenticated implements _Authenticated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(User user)? authenticated,
-    TResult Function(AuthenticationFailures failure)? unauthenticatedRegistered,
-    TResult Function(AuthenticationFailures failure)?
-        unauthenticatedNotRegistered,
+    TResult Function(AuthenticationFailures failure, bool isRegistered)?
+        unauthenticated,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
@@ -1029,10 +993,7 @@ class _$_Authenticated implements _Authenticated {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Authenticated value) authenticated,
-    required TResult Function(_UnauthenticatedRegistered value)
-        unauthenticatedRegistered,
-    required TResult Function(_UnauthenticatedNotRegistered value)
-        unauthenticatedNotRegistered,
+    required TResult Function(_Unauthenticated value) unauthenticated,
   }) {
     return authenticated(this);
   }
@@ -1042,10 +1003,7 @@ class _$_Authenticated implements _Authenticated {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Authenticated value)? authenticated,
-    TResult Function(_UnauthenticatedRegistered value)?
-        unauthenticatedRegistered,
-    TResult Function(_UnauthenticatedNotRegistered value)?
-        unauthenticatedNotRegistered,
+    TResult Function(_Unauthenticated value)? unauthenticated,
   }) {
     return authenticated?.call(this);
   }
@@ -1055,10 +1013,7 @@ class _$_Authenticated implements _Authenticated {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Authenticated value)? authenticated,
-    TResult Function(_UnauthenticatedRegistered value)?
-        unauthenticatedRegistered,
-    TResult Function(_UnauthenticatedNotRegistered value)?
-        unauthenticatedNotRegistered,
+    TResult Function(_Unauthenticated value)? unauthenticated,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
@@ -1078,36 +1033,40 @@ abstract class _Authenticated implements AuthenticationState {
 }
 
 /// @nodoc
-abstract class _$UnauthenticatedRegisteredCopyWith<$Res> {
-  factory _$UnauthenticatedRegisteredCopyWith(_UnauthenticatedRegistered value,
-          $Res Function(_UnauthenticatedRegistered) then) =
-      __$UnauthenticatedRegisteredCopyWithImpl<$Res>;
-  $Res call({AuthenticationFailures failure});
+abstract class _$UnauthenticatedCopyWith<$Res> {
+  factory _$UnauthenticatedCopyWith(
+          _Unauthenticated value, $Res Function(_Unauthenticated) then) =
+      __$UnauthenticatedCopyWithImpl<$Res>;
+  $Res call({AuthenticationFailures failure, bool isRegistered});
 
   $AuthenticationFailuresCopyWith<$Res> get failure;
 }
 
 /// @nodoc
-class __$UnauthenticatedRegisteredCopyWithImpl<$Res>
+class __$UnauthenticatedCopyWithImpl<$Res>
     extends _$AuthenticationStateCopyWithImpl<$Res>
-    implements _$UnauthenticatedRegisteredCopyWith<$Res> {
-  __$UnauthenticatedRegisteredCopyWithImpl(_UnauthenticatedRegistered _value,
-      $Res Function(_UnauthenticatedRegistered) _then)
-      : super(_value, (v) => _then(v as _UnauthenticatedRegistered));
+    implements _$UnauthenticatedCopyWith<$Res> {
+  __$UnauthenticatedCopyWithImpl(
+      _Unauthenticated _value, $Res Function(_Unauthenticated) _then)
+      : super(_value, (v) => _then(v as _Unauthenticated));
 
   @override
-  _UnauthenticatedRegistered get _value =>
-      super._value as _UnauthenticatedRegistered;
+  _Unauthenticated get _value => super._value as _Unauthenticated;
 
   @override
   $Res call({
     Object? failure = freezed,
+    Object? isRegistered = freezed,
   }) {
-    return _then(_UnauthenticatedRegistered(
-      failure == freezed
+    return _then(_Unauthenticated(
+      failure: failure == freezed
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
               as AuthenticationFailures,
+      isRegistered: isRegistered == freezed
+          ? _value.isRegistered
+          : isRegistered // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 
@@ -1121,47 +1080,50 @@ class __$UnauthenticatedRegisteredCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_UnauthenticatedRegistered implements _UnauthenticatedRegistered {
-  const _$_UnauthenticatedRegistered(this.failure);
+class _$_Unauthenticated implements _Unauthenticated {
+  const _$_Unauthenticated({required this.failure, this.isRegistered = false});
 
   @override
   final AuthenticationFailures failure;
+  @JsonKey(defaultValue: false)
+  @override
+  final bool isRegistered;
 
   @override
   String toString() {
-    return 'AuthenticationState.unauthenticatedRegistered(failure: $failure)';
+    return 'AuthenticationState.unauthenticated(failure: $failure, isRegistered: $isRegistered)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _UnauthenticatedRegistered &&
-            const DeepCollectionEquality().equals(other.failure, failure));
+            other is _Unauthenticated &&
+            const DeepCollectionEquality().equals(other.failure, failure) &&
+            const DeepCollectionEquality()
+                .equals(other.isRegistered, isRegistered));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(failure));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(failure),
+      const DeepCollectionEquality().hash(isRegistered));
 
   @JsonKey(ignore: true)
   @override
-  _$UnauthenticatedRegisteredCopyWith<_UnauthenticatedRegistered>
-      get copyWith =>
-          __$UnauthenticatedRegisteredCopyWithImpl<_UnauthenticatedRegistered>(
-              this, _$identity);
+  _$UnauthenticatedCopyWith<_Unauthenticated> get copyWith =>
+      __$UnauthenticatedCopyWithImpl<_Unauthenticated>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(User user) authenticated,
-    required TResult Function(AuthenticationFailures failure)
-        unauthenticatedRegistered,
-    required TResult Function(AuthenticationFailures failure)
-        unauthenticatedNotRegistered,
+    required TResult Function(AuthenticationFailures failure, bool isRegistered)
+        unauthenticated,
   }) {
-    return unauthenticatedRegistered(failure);
+    return unauthenticated(failure, isRegistered);
   }
 
   @override
@@ -1169,11 +1131,10 @@ class _$_UnauthenticatedRegistered implements _UnauthenticatedRegistered {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(User user)? authenticated,
-    TResult Function(AuthenticationFailures failure)? unauthenticatedRegistered,
-    TResult Function(AuthenticationFailures failure)?
-        unauthenticatedNotRegistered,
+    TResult Function(AuthenticationFailures failure, bool isRegistered)?
+        unauthenticated,
   }) {
-    return unauthenticatedRegistered?.call(failure);
+    return unauthenticated?.call(failure, isRegistered);
   }
 
   @override
@@ -1181,13 +1142,12 @@ class _$_UnauthenticatedRegistered implements _UnauthenticatedRegistered {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(User user)? authenticated,
-    TResult Function(AuthenticationFailures failure)? unauthenticatedRegistered,
-    TResult Function(AuthenticationFailures failure)?
-        unauthenticatedNotRegistered,
+    TResult Function(AuthenticationFailures failure, bool isRegistered)?
+        unauthenticated,
     required TResult orElse(),
   }) {
-    if (unauthenticatedRegistered != null) {
-      return unauthenticatedRegistered(failure);
+    if (unauthenticated != null) {
+      return unauthenticated(failure, isRegistered);
     }
     return orElse();
   }
@@ -1197,12 +1157,9 @@ class _$_UnauthenticatedRegistered implements _UnauthenticatedRegistered {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Authenticated value) authenticated,
-    required TResult Function(_UnauthenticatedRegistered value)
-        unauthenticatedRegistered,
-    required TResult Function(_UnauthenticatedNotRegistered value)
-        unauthenticatedNotRegistered,
+    required TResult Function(_Unauthenticated value) unauthenticated,
   }) {
-    return unauthenticatedRegistered(this);
+    return unauthenticated(this);
   }
 
   @override
@@ -1210,12 +1167,9 @@ class _$_UnauthenticatedRegistered implements _UnauthenticatedRegistered {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Authenticated value)? authenticated,
-    TResult Function(_UnauthenticatedRegistered value)?
-        unauthenticatedRegistered,
-    TResult Function(_UnauthenticatedNotRegistered value)?
-        unauthenticatedNotRegistered,
+    TResult Function(_Unauthenticated value)? unauthenticated,
   }) {
-    return unauthenticatedRegistered?.call(this);
+    return unauthenticated?.call(this);
   }
 
   @override
@@ -1223,195 +1177,24 @@ class _$_UnauthenticatedRegistered implements _UnauthenticatedRegistered {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Authenticated value)? authenticated,
-    TResult Function(_UnauthenticatedRegistered value)?
-        unauthenticatedRegistered,
-    TResult Function(_UnauthenticatedNotRegistered value)?
-        unauthenticatedNotRegistered,
+    TResult Function(_Unauthenticated value)? unauthenticated,
     required TResult orElse(),
   }) {
-    if (unauthenticatedRegistered != null) {
-      return unauthenticatedRegistered(this);
+    if (unauthenticated != null) {
+      return unauthenticated(this);
     }
     return orElse();
   }
 }
 
-abstract class _UnauthenticatedRegistered implements AuthenticationState {
-  const factory _UnauthenticatedRegistered(AuthenticationFailures failure) =
-      _$_UnauthenticatedRegistered;
+abstract class _Unauthenticated implements AuthenticationState {
+  const factory _Unauthenticated(
+      {required AuthenticationFailures failure,
+      bool isRegistered}) = _$_Unauthenticated;
 
   AuthenticationFailures get failure;
+  bool get isRegistered;
   @JsonKey(ignore: true)
-  _$UnauthenticatedRegisteredCopyWith<_UnauthenticatedRegistered>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$UnauthenticatedNotRegisteredCopyWith<$Res> {
-  factory _$UnauthenticatedNotRegisteredCopyWith(
-          _UnauthenticatedNotRegistered value,
-          $Res Function(_UnauthenticatedNotRegistered) then) =
-      __$UnauthenticatedNotRegisteredCopyWithImpl<$Res>;
-  $Res call({AuthenticationFailures failure});
-
-  $AuthenticationFailuresCopyWith<$Res> get failure;
-}
-
-/// @nodoc
-class __$UnauthenticatedNotRegisteredCopyWithImpl<$Res>
-    extends _$AuthenticationStateCopyWithImpl<$Res>
-    implements _$UnauthenticatedNotRegisteredCopyWith<$Res> {
-  __$UnauthenticatedNotRegisteredCopyWithImpl(
-      _UnauthenticatedNotRegistered _value,
-      $Res Function(_UnauthenticatedNotRegistered) _then)
-      : super(_value, (v) => _then(v as _UnauthenticatedNotRegistered));
-
-  @override
-  _UnauthenticatedNotRegistered get _value =>
-      super._value as _UnauthenticatedNotRegistered;
-
-  @override
-  $Res call({
-    Object? failure = freezed,
-  }) {
-    return _then(_UnauthenticatedNotRegistered(
-      failure == freezed
-          ? _value.failure
-          : failure // ignore: cast_nullable_to_non_nullable
-              as AuthenticationFailures,
-    ));
-  }
-
-  @override
-  $AuthenticationFailuresCopyWith<$Res> get failure {
-    return $AuthenticationFailuresCopyWith<$Res>(_value.failure, (value) {
-      return _then(_value.copyWith(failure: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$_UnauthenticatedNotRegistered implements _UnauthenticatedNotRegistered {
-  const _$_UnauthenticatedNotRegistered(this.failure);
-
-  @override
-  final AuthenticationFailures failure;
-
-  @override
-  String toString() {
-    return 'AuthenticationState.unauthenticatedNotRegistered(failure: $failure)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _UnauthenticatedNotRegistered &&
-            const DeepCollectionEquality().equals(other.failure, failure));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(failure));
-
-  @JsonKey(ignore: true)
-  @override
-  _$UnauthenticatedNotRegisteredCopyWith<_UnauthenticatedNotRegistered>
-      get copyWith => __$UnauthenticatedNotRegisteredCopyWithImpl<
-          _UnauthenticatedNotRegistered>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(User user) authenticated,
-    required TResult Function(AuthenticationFailures failure)
-        unauthenticatedRegistered,
-    required TResult Function(AuthenticationFailures failure)
-        unauthenticatedNotRegistered,
-  }) {
-    return unauthenticatedNotRegistered(failure);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(User user)? authenticated,
-    TResult Function(AuthenticationFailures failure)? unauthenticatedRegistered,
-    TResult Function(AuthenticationFailures failure)?
-        unauthenticatedNotRegistered,
-  }) {
-    return unauthenticatedNotRegistered?.call(failure);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(User user)? authenticated,
-    TResult Function(AuthenticationFailures failure)? unauthenticatedRegistered,
-    TResult Function(AuthenticationFailures failure)?
-        unauthenticatedNotRegistered,
-    required TResult orElse(),
-  }) {
-    if (unauthenticatedNotRegistered != null) {
-      return unauthenticatedNotRegistered(failure);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Authenticated value) authenticated,
-    required TResult Function(_UnauthenticatedRegistered value)
-        unauthenticatedRegistered,
-    required TResult Function(_UnauthenticatedNotRegistered value)
-        unauthenticatedNotRegistered,
-  }) {
-    return unauthenticatedNotRegistered(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Authenticated value)? authenticated,
-    TResult Function(_UnauthenticatedRegistered value)?
-        unauthenticatedRegistered,
-    TResult Function(_UnauthenticatedNotRegistered value)?
-        unauthenticatedNotRegistered,
-  }) {
-    return unauthenticatedNotRegistered?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Authenticated value)? authenticated,
-    TResult Function(_UnauthenticatedRegistered value)?
-        unauthenticatedRegistered,
-    TResult Function(_UnauthenticatedNotRegistered value)?
-        unauthenticatedNotRegistered,
-    required TResult orElse(),
-  }) {
-    if (unauthenticatedNotRegistered != null) {
-      return unauthenticatedNotRegistered(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _UnauthenticatedNotRegistered implements AuthenticationState {
-  const factory _UnauthenticatedNotRegistered(AuthenticationFailures failure) =
-      _$_UnauthenticatedNotRegistered;
-
-  AuthenticationFailures get failure;
-  @JsonKey(ignore: true)
-  _$UnauthenticatedNotRegisteredCopyWith<_UnauthenticatedNotRegistered>
-      get copyWith => throw _privateConstructorUsedError;
+  _$UnauthenticatedCopyWith<_Unauthenticated> get copyWith =>
+      throw _privateConstructorUsedError;
 }
