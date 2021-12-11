@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../injection.dart';
-import '../authentication/application/authentication_bloc.dart';
+import '../authentication/application/authentication_bloc/authentication_bloc.dart';
 import 'presentation/routes/app_router.gr.dart';
 import 'presentation/themes/themes.dart' as themes;
 

@@ -24,20 +24,6 @@ class _$AuthenticationEventTearOff {
   Logout logout() {
     return const Logout();
   }
-
-  SignIn signIn(String phoneNumber, String password) {
-    return SignIn(
-      phoneNumber,
-      password,
-    );
-  }
-
-  SignUp signUp(String phoneNumber, String password) {
-    return SignUp(
-      phoneNumber,
-      password,
-    );
-  }
 }
 
 /// @nodoc
@@ -49,24 +35,18 @@ mixin _$AuthenticationEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() checkAuthenticationStatus,
     required TResult Function() logout,
-    required TResult Function(String phoneNumber, String password) signIn,
-    required TResult Function(String phoneNumber, String password) signUp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? checkAuthenticationStatus,
     TResult Function()? logout,
-    TResult Function(String phoneNumber, String password)? signIn,
-    TResult Function(String phoneNumber, String password)? signUp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? checkAuthenticationStatus,
     TResult Function()? logout,
-    TResult Function(String phoneNumber, String password)? signIn,
-    TResult Function(String phoneNumber, String password)? signUp,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -75,8 +55,6 @@ mixin _$AuthenticationEvent {
     required TResult Function(CheckAuthenticationStatus value)
         checkAuthenticationStatus,
     required TResult Function(Logout value) logout,
-    required TResult Function(SignIn value) signIn,
-    required TResult Function(SignUp value) signUp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -84,8 +62,6 @@ mixin _$AuthenticationEvent {
     TResult Function(CheckAuthenticationStatus value)?
         checkAuthenticationStatus,
     TResult Function(Logout value)? logout,
-    TResult Function(SignIn value)? signIn,
-    TResult Function(SignUp value)? signUp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -93,8 +69,6 @@ mixin _$AuthenticationEvent {
     TResult Function(CheckAuthenticationStatus value)?
         checkAuthenticationStatus,
     TResult Function(Logout value)? logout,
-    TResult Function(SignIn value)? signIn,
-    TResult Function(SignUp value)? signUp,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -162,8 +136,6 @@ class _$CheckAuthenticationStatus extends CheckAuthenticationStatus {
   TResult when<TResult extends Object?>({
     required TResult Function() checkAuthenticationStatus,
     required TResult Function() logout,
-    required TResult Function(String phoneNumber, String password) signIn,
-    required TResult Function(String phoneNumber, String password) signUp,
   }) {
     return checkAuthenticationStatus();
   }
@@ -173,8 +145,6 @@ class _$CheckAuthenticationStatus extends CheckAuthenticationStatus {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? checkAuthenticationStatus,
     TResult Function()? logout,
-    TResult Function(String phoneNumber, String password)? signIn,
-    TResult Function(String phoneNumber, String password)? signUp,
   }) {
     return checkAuthenticationStatus?.call();
   }
@@ -184,8 +154,6 @@ class _$CheckAuthenticationStatus extends CheckAuthenticationStatus {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? checkAuthenticationStatus,
     TResult Function()? logout,
-    TResult Function(String phoneNumber, String password)? signIn,
-    TResult Function(String phoneNumber, String password)? signUp,
     required TResult orElse(),
   }) {
     if (checkAuthenticationStatus != null) {
@@ -200,8 +168,6 @@ class _$CheckAuthenticationStatus extends CheckAuthenticationStatus {
     required TResult Function(CheckAuthenticationStatus value)
         checkAuthenticationStatus,
     required TResult Function(Logout value) logout,
-    required TResult Function(SignIn value) signIn,
-    required TResult Function(SignUp value) signUp,
   }) {
     return checkAuthenticationStatus(this);
   }
@@ -212,8 +178,6 @@ class _$CheckAuthenticationStatus extends CheckAuthenticationStatus {
     TResult Function(CheckAuthenticationStatus value)?
         checkAuthenticationStatus,
     TResult Function(Logout value)? logout,
-    TResult Function(SignIn value)? signIn,
-    TResult Function(SignUp value)? signUp,
   }) {
     return checkAuthenticationStatus?.call(this);
   }
@@ -224,8 +188,6 @@ class _$CheckAuthenticationStatus extends CheckAuthenticationStatus {
     TResult Function(CheckAuthenticationStatus value)?
         checkAuthenticationStatus,
     TResult Function(Logout value)? logout,
-    TResult Function(SignIn value)? signIn,
-    TResult Function(SignUp value)? signUp,
     required TResult orElse(),
   }) {
     if (checkAuthenticationStatus != null) {
@@ -280,8 +242,6 @@ class _$Logout extends Logout {
   TResult when<TResult extends Object?>({
     required TResult Function() checkAuthenticationStatus,
     required TResult Function() logout,
-    required TResult Function(String phoneNumber, String password) signIn,
-    required TResult Function(String phoneNumber, String password) signUp,
   }) {
     return logout();
   }
@@ -291,8 +251,6 @@ class _$Logout extends Logout {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? checkAuthenticationStatus,
     TResult Function()? logout,
-    TResult Function(String phoneNumber, String password)? signIn,
-    TResult Function(String phoneNumber, String password)? signUp,
   }) {
     return logout?.call();
   }
@@ -302,8 +260,6 @@ class _$Logout extends Logout {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? checkAuthenticationStatus,
     TResult Function()? logout,
-    TResult Function(String phoneNumber, String password)? signIn,
-    TResult Function(String phoneNumber, String password)? signUp,
     required TResult orElse(),
   }) {
     if (logout != null) {
@@ -318,8 +274,6 @@ class _$Logout extends Logout {
     required TResult Function(CheckAuthenticationStatus value)
         checkAuthenticationStatus,
     required TResult Function(Logout value) logout,
-    required TResult Function(SignIn value) signIn,
-    required TResult Function(SignUp value) signUp,
   }) {
     return logout(this);
   }
@@ -330,8 +284,6 @@ class _$Logout extends Logout {
     TResult Function(CheckAuthenticationStatus value)?
         checkAuthenticationStatus,
     TResult Function(Logout value)? logout,
-    TResult Function(SignIn value)? signIn,
-    TResult Function(SignUp value)? signUp,
   }) {
     return logout?.call(this);
   }
@@ -342,8 +294,6 @@ class _$Logout extends Logout {
     TResult Function(CheckAuthenticationStatus value)?
         checkAuthenticationStatus,
     TResult Function(Logout value)? logout,
-    TResult Function(SignIn value)? signIn,
-    TResult Function(SignUp value)? signUp,
     required TResult orElse(),
   }) {
     if (logout != null) {
@@ -356,322 +306,6 @@ class _$Logout extends Logout {
 abstract class Logout extends AuthenticationEvent {
   const factory Logout() = _$Logout;
   const Logout._() : super._();
-}
-
-/// @nodoc
-abstract class $SignInCopyWith<$Res> {
-  factory $SignInCopyWith(SignIn value, $Res Function(SignIn) then) =
-      _$SignInCopyWithImpl<$Res>;
-  $Res call({String phoneNumber, String password});
-}
-
-/// @nodoc
-class _$SignInCopyWithImpl<$Res> extends _$AuthenticationEventCopyWithImpl<$Res>
-    implements $SignInCopyWith<$Res> {
-  _$SignInCopyWithImpl(SignIn _value, $Res Function(SignIn) _then)
-      : super(_value, (v) => _then(v as SignIn));
-
-  @override
-  SignIn get _value => super._value as SignIn;
-
-  @override
-  $Res call({
-    Object? phoneNumber = freezed,
-    Object? password = freezed,
-  }) {
-    return _then(SignIn(
-      phoneNumber == freezed
-          ? _value.phoneNumber
-          : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as String,
-      password == freezed
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$SignIn extends SignIn {
-  const _$SignIn(this.phoneNumber, this.password) : super._();
-
-  @override
-  final String phoneNumber;
-  @override
-  final String password;
-
-  @override
-  String toString() {
-    return 'AuthenticationEvent.signIn(phoneNumber: $phoneNumber, password: $password)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is SignIn &&
-            const DeepCollectionEquality()
-                .equals(other.phoneNumber, phoneNumber) &&
-            const DeepCollectionEquality().equals(other.password, password));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(phoneNumber),
-      const DeepCollectionEquality().hash(password));
-
-  @JsonKey(ignore: true)
-  @override
-  $SignInCopyWith<SignIn> get copyWith =>
-      _$SignInCopyWithImpl<SignIn>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() checkAuthenticationStatus,
-    required TResult Function() logout,
-    required TResult Function(String phoneNumber, String password) signIn,
-    required TResult Function(String phoneNumber, String password) signUp,
-  }) {
-    return signIn(phoneNumber, password);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? checkAuthenticationStatus,
-    TResult Function()? logout,
-    TResult Function(String phoneNumber, String password)? signIn,
-    TResult Function(String phoneNumber, String password)? signUp,
-  }) {
-    return signIn?.call(phoneNumber, password);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? checkAuthenticationStatus,
-    TResult Function()? logout,
-    TResult Function(String phoneNumber, String password)? signIn,
-    TResult Function(String phoneNumber, String password)? signUp,
-    required TResult orElse(),
-  }) {
-    if (signIn != null) {
-      return signIn(phoneNumber, password);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(CheckAuthenticationStatus value)
-        checkAuthenticationStatus,
-    required TResult Function(Logout value) logout,
-    required TResult Function(SignIn value) signIn,
-    required TResult Function(SignUp value) signUp,
-  }) {
-    return signIn(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CheckAuthenticationStatus value)?
-        checkAuthenticationStatus,
-    TResult Function(Logout value)? logout,
-    TResult Function(SignIn value)? signIn,
-    TResult Function(SignUp value)? signUp,
-  }) {
-    return signIn?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(CheckAuthenticationStatus value)?
-        checkAuthenticationStatus,
-    TResult Function(Logout value)? logout,
-    TResult Function(SignIn value)? signIn,
-    TResult Function(SignUp value)? signUp,
-    required TResult orElse(),
-  }) {
-    if (signIn != null) {
-      return signIn(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class SignIn extends AuthenticationEvent {
-  const factory SignIn(String phoneNumber, String password) = _$SignIn;
-  const SignIn._() : super._();
-
-  String get phoneNumber;
-  String get password;
-  @JsonKey(ignore: true)
-  $SignInCopyWith<SignIn> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $SignUpCopyWith<$Res> {
-  factory $SignUpCopyWith(SignUp value, $Res Function(SignUp) then) =
-      _$SignUpCopyWithImpl<$Res>;
-  $Res call({String phoneNumber, String password});
-}
-
-/// @nodoc
-class _$SignUpCopyWithImpl<$Res> extends _$AuthenticationEventCopyWithImpl<$Res>
-    implements $SignUpCopyWith<$Res> {
-  _$SignUpCopyWithImpl(SignUp _value, $Res Function(SignUp) _then)
-      : super(_value, (v) => _then(v as SignUp));
-
-  @override
-  SignUp get _value => super._value as SignUp;
-
-  @override
-  $Res call({
-    Object? phoneNumber = freezed,
-    Object? password = freezed,
-  }) {
-    return _then(SignUp(
-      phoneNumber == freezed
-          ? _value.phoneNumber
-          : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as String,
-      password == freezed
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$SignUp extends SignUp {
-  const _$SignUp(this.phoneNumber, this.password) : super._();
-
-  @override
-  final String phoneNumber;
-  @override
-  final String password;
-
-  @override
-  String toString() {
-    return 'AuthenticationEvent.signUp(phoneNumber: $phoneNumber, password: $password)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is SignUp &&
-            const DeepCollectionEquality()
-                .equals(other.phoneNumber, phoneNumber) &&
-            const DeepCollectionEquality().equals(other.password, password));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(phoneNumber),
-      const DeepCollectionEquality().hash(password));
-
-  @JsonKey(ignore: true)
-  @override
-  $SignUpCopyWith<SignUp> get copyWith =>
-      _$SignUpCopyWithImpl<SignUp>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() checkAuthenticationStatus,
-    required TResult Function() logout,
-    required TResult Function(String phoneNumber, String password) signIn,
-    required TResult Function(String phoneNumber, String password) signUp,
-  }) {
-    return signUp(phoneNumber, password);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? checkAuthenticationStatus,
-    TResult Function()? logout,
-    TResult Function(String phoneNumber, String password)? signIn,
-    TResult Function(String phoneNumber, String password)? signUp,
-  }) {
-    return signUp?.call(phoneNumber, password);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? checkAuthenticationStatus,
-    TResult Function()? logout,
-    TResult Function(String phoneNumber, String password)? signIn,
-    TResult Function(String phoneNumber, String password)? signUp,
-    required TResult orElse(),
-  }) {
-    if (signUp != null) {
-      return signUp(phoneNumber, password);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(CheckAuthenticationStatus value)
-        checkAuthenticationStatus,
-    required TResult Function(Logout value) logout,
-    required TResult Function(SignIn value) signIn,
-    required TResult Function(SignUp value) signUp,
-  }) {
-    return signUp(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CheckAuthenticationStatus value)?
-        checkAuthenticationStatus,
-    TResult Function(Logout value)? logout,
-    TResult Function(SignIn value)? signIn,
-    TResult Function(SignUp value)? signUp,
-  }) {
-    return signUp?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(CheckAuthenticationStatus value)?
-        checkAuthenticationStatus,
-    TResult Function(Logout value)? logout,
-    TResult Function(SignIn value)? signIn,
-    TResult Function(SignUp value)? signUp,
-    required TResult orElse(),
-  }) {
-    if (signUp != null) {
-      return signUp(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class SignUp extends AuthenticationEvent {
-  const factory SignUp(String phoneNumber, String password) = _$SignUp;
-  const SignUp._() : super._();
-
-  String get phoneNumber;
-  String get password;
-  @JsonKey(ignore: true)
-  $SignUpCopyWith<SignUp> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

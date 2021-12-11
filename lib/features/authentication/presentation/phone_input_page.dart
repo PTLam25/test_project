@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../core/presentation/themes/themes.dart';
-import '../application/authentication_bloc.dart';
+import '../application/authentication_bloc/authentication_bloc.dart';
 
 class PhoneInputPage extends StatefulWidget {
   const PhoneInputPage({
@@ -46,6 +46,7 @@ class _PhoneInputPageState extends State<PhoneInputPage> {
             bottom: 24.0,
           ),
           child: Form(
+            key: _formKey,
             onChanged: _onFormChanged,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

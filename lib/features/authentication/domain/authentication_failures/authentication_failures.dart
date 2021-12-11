@@ -4,7 +4,8 @@ part 'authentication_failures.freezed.dart';
 
 @freezed
 class AuthenticationFailures with _$AuthenticationFailures {
-  const factory AuthenticationFailures.invalidCode() = _InvalidCode;
+  const factory AuthenticationFailures.invalidConfirmationCode() =
+      _InvalidConfirmationCode;
 
   const factory AuthenticationFailures.invalidPhoneNumberAndPasswordCombination() =
       _InvalidPhoneNumberAndPasswordCombination;

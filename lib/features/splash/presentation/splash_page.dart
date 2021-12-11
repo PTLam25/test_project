@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../authentication/application/authentication_bloc.dart';
+import '../../authentication/application/authentication_bloc/authentication_bloc.dart';
 import '../../core/presentation/routes/app_router.dart';
 
 class SplashPage extends StatelessWidget {
