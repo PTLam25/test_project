@@ -6,7 +6,7 @@ class AppColors {
   static const Color black = Color(0xFF181818);
 
   static const MaterialColor gray = MaterialColor(
-    0xFFC65141,
+    0xFFBBBBBB,
     <int, Color>{
       300: Color(0xFFB0B0B0),
     },

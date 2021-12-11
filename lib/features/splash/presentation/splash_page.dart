@@ -27,8 +27,8 @@ class SplashPage extends StatelessWidget {
     AuthenticationState state,
   ) {
     state.maybeWhen(
-      authenticated: (_) => context.router.pushNamed(AppRoutes.home),
-      orElse: () => context.router.pushNamed(AppRoutes.phoneInput),
+      authenticated: (_) => context.router.replaceNamed(AppRoutes.home),
+      orElse: () => context.router.replaceNamed(AppRoutes.phoneInput),
     );
   }
 }

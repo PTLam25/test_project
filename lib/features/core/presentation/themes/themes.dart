@@ -3,6 +3,14 @@ import 'package:flutter/material.dart';
 part 'app_colors.dart';
 
 final ThemeData appThemeData = ThemeData(
+  appBarTheme: AppBarTheme(
+    backgroundColor: AppColors.white.shade300,
+    elevation: 0.0,
+    iconTheme: IconThemeData(
+      size: 36.0,
+      color: AppColors.gray.shade300,
+    ),
+  ),
   colorScheme: ColorScheme(
     primary: AppColors.darkBlue,
     primaryVariant: AppColors.darkBlue,
@@ -52,15 +60,16 @@ final ThemeData appThemeData = ThemeData(
       ),
     ),
   ),
-  iconTheme: IconThemeData(
-    size: 18.0,
-    color: AppColors.gray.shade300,
-  ),
-  scaffoldBackgroundColor: AppColors.white.shade200,
+  scaffoldBackgroundColor: AppColors.white.shade300,
   textTheme: TextTheme(
     headline1: const TextStyle(
       color: AppColors.black,
       fontSize: 28.0,
+      fontWeight: FontWeight.w600,
+    ),
+    headline5: const TextStyle(
+      color: AppColors.black,
+      fontSize: 14.0,
       fontWeight: FontWeight.w600,
     ),
     caption: TextStyle(
