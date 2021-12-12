@@ -54,7 +54,7 @@ class ImplAuthenticationService implements AuthenticationService {
       }
 
       return left(
-        const AuthenticationFailures.unauthorized(isRegistered: false),
+        const AuthenticationFailures.invalidConfirmationCode(),
       );
     } catch (e) {
       return left(const AuthenticationFailures.unexpected());

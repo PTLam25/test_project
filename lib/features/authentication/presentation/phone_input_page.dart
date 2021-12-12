@@ -3,8 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../core/presentation/routes/app_router.dart';
 import '../../core/presentation/themes/themes.dart';
-import '../application/authentication_bloc/authentication_bloc.dart';
+import '../application/sign_up_bloc/sign_up_bloc.dart';
 
 class PhoneInputPage extends StatefulWidget {
   const PhoneInputPage({
@@ -69,7 +70,7 @@ class _PhoneInputPageState extends State<PhoneInputPage> {
                     ),
                     const SizedBox(height: 14.0),
                     Text(
-                      'Вам придет сообщение с кодом..',
+                      'Вам придет сообщение с кодом.',
                       style: Theme.of(context).textTheme.caption,
                     ),
                     Text(
@@ -113,6 +114,10 @@ class _PhoneInputPageState extends State<PhoneInputPage> {
   }
 
   void _onSubmit() {
-    context.read<AuthenticationBloc>();
+    context
+      ..read<SignUpBloc>().add(
+        SignUpEvent.phoneNumberChanged(_phoneNumberController.text),
+      )
+      ..router.pushNamed(AppRoutes.smsCodeConfirmation);
   }
 }

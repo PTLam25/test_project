@@ -20,22 +20,31 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   final AuthenticationService authenticationService;
 
   SignUpBloc(this.authenticationService) : super(SignUpState.initial()) {
-    on<ConfirmationCodeChanged>(_onConfirmationCodeChanged);
+    on<ConfirmationCodeSubmitted>(_onConfirmationCodeSubmitted);
     on<PasswordChanged>(_onPasswordChanged);
     on<PhoneNumberChanged>(_onPhoneNumberChanged);
     on<SignUpPressed>(_onSignUpPressed);
   }
 
-  FutureOr<void> _onConfirmationCodeChanged(
-    ConfirmationCodeChanged event,
+  FutureOr<void> _onConfirmationCodeSubmitted(
+    ConfirmationCodeSubmitted event,
     Emitter<SignUpState> emit,
-  ) {
+  ) async {
     emit(
       state.copyWith(
-        confirmationCode: event.confirmationCode,
+        isSubmitting: true,
         failureOrUser: none(),
+        failureOrSuccessConfirmation: none(),
       ),
     );
+
+    final failureOrSuccessConfirmation =
+        await authenticationService.confirmCode(event.confirmationCode);
+
+    emit(state.copyWith(
+      isSubmitting: false,
+      failureOrSuccessConfirmation: some(failureOrSuccessConfirmation),
+    ));
   }
 
   FutureOr<void> _onPasswordChanged(
@@ -46,6 +55,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
       state.copyWith(
         password: event.password,
         failureOrUser: none(),
+        failureOrSuccessConfirmation: none(),
       ),
     );
   }
@@ -58,6 +68,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
       state.copyWith(
         password: event.phoneNumber,
         failureOrUser: none(),
+        failureOrSuccessConfirmation: none(),
       ),
     );
   }
@@ -66,23 +77,22 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     SignUpPressed event,
     Emitter<SignUpState> emit,
   ) async {
-    Either<AuthenticationFailures, User>? failureOrUser;
-
     emit(
       state.copyWith(
         isSubmitting: true,
         failureOrUser: none(),
+        failureOrSuccessConfirmation: none(),
       ),
     );
 
-    failureOrUser = await authenticationService.signUp(
+    final failureOrUser = await authenticationService.signUp(
       phoneNumber: state.phoneNumber,
       password: state.password,
     );
 
     emit(state.copyWith(
       isSubmitting: false,
-      failureOrUser: optionOf(failureOrUser),
+      failureOrUser: some(failureOrUser),
     ));
   }
 }

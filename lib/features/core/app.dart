@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../injection.dart';
 import '../authentication/application/authentication_bloc/authentication_bloc.dart';
+import '../authentication/application/sign_in_bloc/sign_in_bloc.dart';
+import '../authentication/application/sign_up_bloc/sign_up_bloc.dart';
 import 'presentation/routes/app_router.gr.dart';
 import 'presentation/themes/themes.dart' as themes;
 
@@ -27,6 +29,12 @@ class _AppState extends State<App> {
             ..add(
               const AuthenticationEvent.checkAuthenticationStatus(),
             ),
+        ),
+        BlocProvider<SignInBloc>(
+          create: (_) => getIt<SignInBloc>(),
+        ),
+        BlocProvider<SignUpBloc>(
+          create: (_) => getIt<SignUpBloc>(),
         ),
       ],
       child: MaterialApp.router(

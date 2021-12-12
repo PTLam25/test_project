@@ -17,8 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$AuthenticationFailuresTearOff {
   const _$AuthenticationFailuresTearOff();
 
-  _InvalidCode invalidCode() {
-    return const _InvalidCode();
+  _InvalidConfirmationCode invalidConfirmationCode() {
+    return const _InvalidConfirmationCode();
   }
 
   _InvalidPhoneNumberAndPasswordCombination
@@ -48,7 +48,7 @@ const $AuthenticationFailures = _$AuthenticationFailuresTearOff();
 mixin _$AuthenticationFailures {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() invalidCode,
+    required TResult Function() invalidConfirmationCode,
     required TResult Function() invalidPhoneNumberAndPasswordCombination,
     required TResult Function() phoneNumberAlreadyExists,
     required TResult Function(bool isRegistered) unauthorized,
@@ -57,7 +57,7 @@ mixin _$AuthenticationFailures {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? invalidCode,
+    TResult Function()? invalidConfirmationCode,
     TResult Function()? invalidPhoneNumberAndPasswordCombination,
     TResult Function()? phoneNumberAlreadyExists,
     TResult Function(bool isRegistered)? unauthorized,
@@ -66,7 +66,7 @@ mixin _$AuthenticationFailures {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? invalidCode,
+    TResult Function()? invalidConfirmationCode,
     TResult Function()? invalidPhoneNumberAndPasswordCombination,
     TResult Function()? phoneNumberAlreadyExists,
     TResult Function(bool isRegistered)? unauthorized,
@@ -76,7 +76,8 @@ mixin _$AuthenticationFailures {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_InvalidCode value) invalidCode,
+    required TResult Function(_InvalidConfirmationCode value)
+        invalidConfirmationCode,
     required TResult Function(_InvalidPhoneNumberAndPasswordCombination value)
         invalidPhoneNumberAndPasswordCombination,
     required TResult Function(_PhoneNumberAlreadyExists value)
@@ -87,7 +88,7 @@ mixin _$AuthenticationFailures {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_InvalidCode value)? invalidCode,
+    TResult Function(_InvalidConfirmationCode value)? invalidConfirmationCode,
     TResult Function(_InvalidPhoneNumberAndPasswordCombination value)?
         invalidPhoneNumberAndPasswordCombination,
     TResult Function(_PhoneNumberAlreadyExists value)? phoneNumberAlreadyExists,
@@ -97,7 +98,7 @@ mixin _$AuthenticationFailures {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InvalidCode value)? invalidCode,
+    TResult Function(_InvalidConfirmationCode value)? invalidConfirmationCode,
     TResult Function(_InvalidPhoneNumberAndPasswordCombination value)?
         invalidPhoneNumberAndPasswordCombination,
     TResult Function(_PhoneNumberAlreadyExists value)? phoneNumberAlreadyExists,
@@ -126,38 +127,39 @@ class _$AuthenticationFailuresCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$InvalidCodeCopyWith<$Res> {
-  factory _$InvalidCodeCopyWith(
-          _InvalidCode value, $Res Function(_InvalidCode) then) =
-      __$InvalidCodeCopyWithImpl<$Res>;
+abstract class _$InvalidConfirmationCodeCopyWith<$Res> {
+  factory _$InvalidConfirmationCodeCopyWith(_InvalidConfirmationCode value,
+          $Res Function(_InvalidConfirmationCode) then) =
+      __$InvalidConfirmationCodeCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InvalidCodeCopyWithImpl<$Res>
+class __$InvalidConfirmationCodeCopyWithImpl<$Res>
     extends _$AuthenticationFailuresCopyWithImpl<$Res>
-    implements _$InvalidCodeCopyWith<$Res> {
-  __$InvalidCodeCopyWithImpl(
-      _InvalidCode _value, $Res Function(_InvalidCode) _then)
-      : super(_value, (v) => _then(v as _InvalidCode));
+    implements _$InvalidConfirmationCodeCopyWith<$Res> {
+  __$InvalidConfirmationCodeCopyWithImpl(_InvalidConfirmationCode _value,
+      $Res Function(_InvalidConfirmationCode) _then)
+      : super(_value, (v) => _then(v as _InvalidConfirmationCode));
 
   @override
-  _InvalidCode get _value => super._value as _InvalidCode;
+  _InvalidConfirmationCode get _value =>
+      super._value as _InvalidConfirmationCode;
 }
 
 /// @nodoc
 
-class _$_InvalidCode implements _InvalidCode {
-  const _$_InvalidCode();
+class _$_InvalidConfirmationCode implements _InvalidConfirmationCode {
+  const _$_InvalidConfirmationCode();
 
   @override
   String toString() {
-    return 'AuthenticationFailures.invalidCode()';
+    return 'AuthenticationFailures.invalidConfirmationCode()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _InvalidCode);
+        (other.runtimeType == runtimeType && other is _InvalidConfirmationCode);
   }
 
   @override
@@ -166,39 +168,39 @@ class _$_InvalidCode implements _InvalidCode {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() invalidCode,
+    required TResult Function() invalidConfirmationCode,
     required TResult Function() invalidPhoneNumberAndPasswordCombination,
     required TResult Function() phoneNumberAlreadyExists,
     required TResult Function(bool isRegistered) unauthorized,
     required TResult Function() unexpected,
   }) {
-    return invalidCode();
+    return invalidConfirmationCode();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? invalidCode,
+    TResult Function()? invalidConfirmationCode,
     TResult Function()? invalidPhoneNumberAndPasswordCombination,
     TResult Function()? phoneNumberAlreadyExists,
     TResult Function(bool isRegistered)? unauthorized,
     TResult Function()? unexpected,
   }) {
-    return invalidCode?.call();
+    return invalidConfirmationCode?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? invalidCode,
+    TResult Function()? invalidConfirmationCode,
     TResult Function()? invalidPhoneNumberAndPasswordCombination,
     TResult Function()? phoneNumberAlreadyExists,
     TResult Function(bool isRegistered)? unauthorized,
     TResult Function()? unexpected,
     required TResult orElse(),
   }) {
-    if (invalidCode != null) {
-      return invalidCode();
+    if (invalidConfirmationCode != null) {
+      return invalidConfirmationCode();
     }
     return orElse();
   }
@@ -206,7 +208,8 @@ class _$_InvalidCode implements _InvalidCode {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_InvalidCode value) invalidCode,
+    required TResult Function(_InvalidConfirmationCode value)
+        invalidConfirmationCode,
     required TResult Function(_InvalidPhoneNumberAndPasswordCombination value)
         invalidPhoneNumberAndPasswordCombination,
     required TResult Function(_PhoneNumberAlreadyExists value)
@@ -214,26 +217,26 @@ class _$_InvalidCode implements _InvalidCode {
     required TResult Function(_Unauthorized value) unauthorized,
     required TResult Function(_Unexpected value) unexpected,
   }) {
-    return invalidCode(this);
+    return invalidConfirmationCode(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_InvalidCode value)? invalidCode,
+    TResult Function(_InvalidConfirmationCode value)? invalidConfirmationCode,
     TResult Function(_InvalidPhoneNumberAndPasswordCombination value)?
         invalidPhoneNumberAndPasswordCombination,
     TResult Function(_PhoneNumberAlreadyExists value)? phoneNumberAlreadyExists,
     TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_Unexpected value)? unexpected,
   }) {
-    return invalidCode?.call(this);
+    return invalidConfirmationCode?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InvalidCode value)? invalidCode,
+    TResult Function(_InvalidConfirmationCode value)? invalidConfirmationCode,
     TResult Function(_InvalidPhoneNumberAndPasswordCombination value)?
         invalidPhoneNumberAndPasswordCombination,
     TResult Function(_PhoneNumberAlreadyExists value)? phoneNumberAlreadyExists,
@@ -241,15 +244,15 @@ class _$_InvalidCode implements _InvalidCode {
     TResult Function(_Unexpected value)? unexpected,
     required TResult orElse(),
   }) {
-    if (invalidCode != null) {
-      return invalidCode(this);
+    if (invalidConfirmationCode != null) {
+      return invalidConfirmationCode(this);
     }
     return orElse();
   }
 }
 
-abstract class _InvalidCode implements AuthenticationFailures {
-  const factory _InvalidCode() = _$_InvalidCode;
+abstract class _InvalidConfirmationCode implements AuthenticationFailures {
+  const factory _InvalidConfirmationCode() = _$_InvalidConfirmationCode;
 }
 
 /// @nodoc
@@ -299,7 +302,7 @@ class _$_InvalidPhoneNumberAndPasswordCombination
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() invalidCode,
+    required TResult Function() invalidConfirmationCode,
     required TResult Function() invalidPhoneNumberAndPasswordCombination,
     required TResult Function() phoneNumberAlreadyExists,
     required TResult Function(bool isRegistered) unauthorized,
@@ -311,7 +314,7 @@ class _$_InvalidPhoneNumberAndPasswordCombination
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? invalidCode,
+    TResult Function()? invalidConfirmationCode,
     TResult Function()? invalidPhoneNumberAndPasswordCombination,
     TResult Function()? phoneNumberAlreadyExists,
     TResult Function(bool isRegistered)? unauthorized,
@@ -323,7 +326,7 @@ class _$_InvalidPhoneNumberAndPasswordCombination
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? invalidCode,
+    TResult Function()? invalidConfirmationCode,
     TResult Function()? invalidPhoneNumberAndPasswordCombination,
     TResult Function()? phoneNumberAlreadyExists,
     TResult Function(bool isRegistered)? unauthorized,
@@ -339,7 +342,8 @@ class _$_InvalidPhoneNumberAndPasswordCombination
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_InvalidCode value) invalidCode,
+    required TResult Function(_InvalidConfirmationCode value)
+        invalidConfirmationCode,
     required TResult Function(_InvalidPhoneNumberAndPasswordCombination value)
         invalidPhoneNumberAndPasswordCombination,
     required TResult Function(_PhoneNumberAlreadyExists value)
@@ -353,7 +357,7 @@ class _$_InvalidPhoneNumberAndPasswordCombination
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_InvalidCode value)? invalidCode,
+    TResult Function(_InvalidConfirmationCode value)? invalidConfirmationCode,
     TResult Function(_InvalidPhoneNumberAndPasswordCombination value)?
         invalidPhoneNumberAndPasswordCombination,
     TResult Function(_PhoneNumberAlreadyExists value)? phoneNumberAlreadyExists,
@@ -366,7 +370,7 @@ class _$_InvalidPhoneNumberAndPasswordCombination
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InvalidCode value)? invalidCode,
+    TResult Function(_InvalidConfirmationCode value)? invalidConfirmationCode,
     TResult Function(_InvalidPhoneNumberAndPasswordCombination value)?
         invalidPhoneNumberAndPasswordCombination,
     TResult Function(_PhoneNumberAlreadyExists value)? phoneNumberAlreadyExists,
@@ -430,7 +434,7 @@ class _$_PhoneNumberAlreadyExists implements _PhoneNumberAlreadyExists {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() invalidCode,
+    required TResult Function() invalidConfirmationCode,
     required TResult Function() invalidPhoneNumberAndPasswordCombination,
     required TResult Function() phoneNumberAlreadyExists,
     required TResult Function(bool isRegistered) unauthorized,
@@ -442,7 +446,7 @@ class _$_PhoneNumberAlreadyExists implements _PhoneNumberAlreadyExists {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? invalidCode,
+    TResult Function()? invalidConfirmationCode,
     TResult Function()? invalidPhoneNumberAndPasswordCombination,
     TResult Function()? phoneNumberAlreadyExists,
     TResult Function(bool isRegistered)? unauthorized,
@@ -454,7 +458,7 @@ class _$_PhoneNumberAlreadyExists implements _PhoneNumberAlreadyExists {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? invalidCode,
+    TResult Function()? invalidConfirmationCode,
     TResult Function()? invalidPhoneNumberAndPasswordCombination,
     TResult Function()? phoneNumberAlreadyExists,
     TResult Function(bool isRegistered)? unauthorized,
@@ -470,7 +474,8 @@ class _$_PhoneNumberAlreadyExists implements _PhoneNumberAlreadyExists {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_InvalidCode value) invalidCode,
+    required TResult Function(_InvalidConfirmationCode value)
+        invalidConfirmationCode,
     required TResult Function(_InvalidPhoneNumberAndPasswordCombination value)
         invalidPhoneNumberAndPasswordCombination,
     required TResult Function(_PhoneNumberAlreadyExists value)
@@ -484,7 +489,7 @@ class _$_PhoneNumberAlreadyExists implements _PhoneNumberAlreadyExists {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_InvalidCode value)? invalidCode,
+    TResult Function(_InvalidConfirmationCode value)? invalidConfirmationCode,
     TResult Function(_InvalidPhoneNumberAndPasswordCombination value)?
         invalidPhoneNumberAndPasswordCombination,
     TResult Function(_PhoneNumberAlreadyExists value)? phoneNumberAlreadyExists,
@@ -497,7 +502,7 @@ class _$_PhoneNumberAlreadyExists implements _PhoneNumberAlreadyExists {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InvalidCode value)? invalidCode,
+    TResult Function(_InvalidConfirmationCode value)? invalidConfirmationCode,
     TResult Function(_InvalidPhoneNumberAndPasswordCombination value)?
         invalidPhoneNumberAndPasswordCombination,
     TResult Function(_PhoneNumberAlreadyExists value)? phoneNumberAlreadyExists,
@@ -582,7 +587,7 @@ class _$_Unauthorized implements _Unauthorized {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() invalidCode,
+    required TResult Function() invalidConfirmationCode,
     required TResult Function() invalidPhoneNumberAndPasswordCombination,
     required TResult Function() phoneNumberAlreadyExists,
     required TResult Function(bool isRegistered) unauthorized,
@@ -594,7 +599,7 @@ class _$_Unauthorized implements _Unauthorized {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? invalidCode,
+    TResult Function()? invalidConfirmationCode,
     TResult Function()? invalidPhoneNumberAndPasswordCombination,
     TResult Function()? phoneNumberAlreadyExists,
     TResult Function(bool isRegistered)? unauthorized,
@@ -606,7 +611,7 @@ class _$_Unauthorized implements _Unauthorized {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? invalidCode,
+    TResult Function()? invalidConfirmationCode,
     TResult Function()? invalidPhoneNumberAndPasswordCombination,
     TResult Function()? phoneNumberAlreadyExists,
     TResult Function(bool isRegistered)? unauthorized,
@@ -622,7 +627,8 @@ class _$_Unauthorized implements _Unauthorized {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_InvalidCode value) invalidCode,
+    required TResult Function(_InvalidConfirmationCode value)
+        invalidConfirmationCode,
     required TResult Function(_InvalidPhoneNumberAndPasswordCombination value)
         invalidPhoneNumberAndPasswordCombination,
     required TResult Function(_PhoneNumberAlreadyExists value)
@@ -636,7 +642,7 @@ class _$_Unauthorized implements _Unauthorized {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_InvalidCode value)? invalidCode,
+    TResult Function(_InvalidConfirmationCode value)? invalidConfirmationCode,
     TResult Function(_InvalidPhoneNumberAndPasswordCombination value)?
         invalidPhoneNumberAndPasswordCombination,
     TResult Function(_PhoneNumberAlreadyExists value)? phoneNumberAlreadyExists,
@@ -649,7 +655,7 @@ class _$_Unauthorized implements _Unauthorized {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InvalidCode value)? invalidCode,
+    TResult Function(_InvalidConfirmationCode value)? invalidConfirmationCode,
     TResult Function(_InvalidPhoneNumberAndPasswordCombination value)?
         invalidPhoneNumberAndPasswordCombination,
     TResult Function(_PhoneNumberAlreadyExists value)? phoneNumberAlreadyExists,
@@ -714,7 +720,7 @@ class _$_Unexpected implements _Unexpected {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() invalidCode,
+    required TResult Function() invalidConfirmationCode,
     required TResult Function() invalidPhoneNumberAndPasswordCombination,
     required TResult Function() phoneNumberAlreadyExists,
     required TResult Function(bool isRegistered) unauthorized,
@@ -726,7 +732,7 @@ class _$_Unexpected implements _Unexpected {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? invalidCode,
+    TResult Function()? invalidConfirmationCode,
     TResult Function()? invalidPhoneNumberAndPasswordCombination,
     TResult Function()? phoneNumberAlreadyExists,
     TResult Function(bool isRegistered)? unauthorized,
@@ -738,7 +744,7 @@ class _$_Unexpected implements _Unexpected {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? invalidCode,
+    TResult Function()? invalidConfirmationCode,
     TResult Function()? invalidPhoneNumberAndPasswordCombination,
     TResult Function()? phoneNumberAlreadyExists,
     TResult Function(bool isRegistered)? unauthorized,
@@ -754,7 +760,8 @@ class _$_Unexpected implements _Unexpected {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_InvalidCode value) invalidCode,
+    required TResult Function(_InvalidConfirmationCode value)
+        invalidConfirmationCode,
     required TResult Function(_InvalidPhoneNumberAndPasswordCombination value)
         invalidPhoneNumberAndPasswordCombination,
     required TResult Function(_PhoneNumberAlreadyExists value)
@@ -768,7 +775,7 @@ class _$_Unexpected implements _Unexpected {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_InvalidCode value)? invalidCode,
+    TResult Function(_InvalidConfirmationCode value)? invalidConfirmationCode,
     TResult Function(_InvalidPhoneNumberAndPasswordCombination value)?
         invalidPhoneNumberAndPasswordCombination,
     TResult Function(_PhoneNumberAlreadyExists value)? phoneNumberAlreadyExists,
@@ -781,7 +788,7 @@ class _$_Unexpected implements _Unexpected {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InvalidCode value)? invalidCode,
+    TResult Function(_InvalidConfirmationCode value)? invalidConfirmationCode,
     TResult Function(_InvalidPhoneNumberAndPasswordCombination value)?
         invalidPhoneNumberAndPasswordCombination,
     TResult Function(_PhoneNumberAlreadyExists value)? phoneNumberAlreadyExists,

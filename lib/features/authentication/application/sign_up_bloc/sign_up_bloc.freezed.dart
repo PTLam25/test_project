@@ -17,8 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$SignUpEventTearOff {
   const _$SignUpEventTearOff();
 
-  ConfirmationCodeChanged confirmationCodeChanged(String confirmationCode) {
-    return ConfirmationCodeChanged(
+  ConfirmationCodeSubmitted confirmationCodeSubmitted(String confirmationCode) {
+    return ConfirmationCodeSubmitted(
       confirmationCode,
     );
   }
@@ -47,7 +47,8 @@ const $SignUpEvent = _$SignUpEventTearOff();
 mixin _$SignUpEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String confirmationCode) confirmationCodeChanged,
+    required TResult Function(String confirmationCode)
+        confirmationCodeSubmitted,
     required TResult Function(String phoneNumber) phoneNumberChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function() signUpPressed,
@@ -55,7 +56,7 @@ mixin _$SignUpEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String confirmationCode)? confirmationCodeChanged,
+    TResult Function(String confirmationCode)? confirmationCodeSubmitted,
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function()? signUpPressed,
@@ -63,7 +64,7 @@ mixin _$SignUpEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String confirmationCode)? confirmationCodeChanged,
+    TResult Function(String confirmationCode)? confirmationCodeSubmitted,
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function()? signUpPressed,
@@ -72,8 +73,8 @@ mixin _$SignUpEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ConfirmationCodeChanged value)
-        confirmationCodeChanged,
+    required TResult Function(ConfirmationCodeSubmitted value)
+        confirmationCodeSubmitted,
     required TResult Function(PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(SignUpPressed value) signUpPressed,
@@ -81,7 +82,8 @@ mixin _$SignUpEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ConfirmationCodeChanged value)? confirmationCodeChanged,
+    TResult Function(ConfirmationCodeSubmitted value)?
+        confirmationCodeSubmitted,
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SignUpPressed value)? signUpPressed,
@@ -89,7 +91,8 @@ mixin _$SignUpEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ConfirmationCodeChanged value)? confirmationCodeChanged,
+    TResult Function(ConfirmationCodeSubmitted value)?
+        confirmationCodeSubmitted,
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SignUpPressed value)? signUpPressed,
@@ -115,29 +118,30 @@ class _$SignUpEventCopyWithImpl<$Res> implements $SignUpEventCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class $ConfirmationCodeChangedCopyWith<$Res> {
-  factory $ConfirmationCodeChangedCopyWith(ConfirmationCodeChanged value,
-          $Res Function(ConfirmationCodeChanged) then) =
-      _$ConfirmationCodeChangedCopyWithImpl<$Res>;
+abstract class $ConfirmationCodeSubmittedCopyWith<$Res> {
+  factory $ConfirmationCodeSubmittedCopyWith(ConfirmationCodeSubmitted value,
+          $Res Function(ConfirmationCodeSubmitted) then) =
+      _$ConfirmationCodeSubmittedCopyWithImpl<$Res>;
   $Res call({String confirmationCode});
 }
 
 /// @nodoc
-class _$ConfirmationCodeChangedCopyWithImpl<$Res>
+class _$ConfirmationCodeSubmittedCopyWithImpl<$Res>
     extends _$SignUpEventCopyWithImpl<$Res>
-    implements $ConfirmationCodeChangedCopyWith<$Res> {
-  _$ConfirmationCodeChangedCopyWithImpl(ConfirmationCodeChanged _value,
-      $Res Function(ConfirmationCodeChanged) _then)
-      : super(_value, (v) => _then(v as ConfirmationCodeChanged));
+    implements $ConfirmationCodeSubmittedCopyWith<$Res> {
+  _$ConfirmationCodeSubmittedCopyWithImpl(ConfirmationCodeSubmitted _value,
+      $Res Function(ConfirmationCodeSubmitted) _then)
+      : super(_value, (v) => _then(v as ConfirmationCodeSubmitted));
 
   @override
-  ConfirmationCodeChanged get _value => super._value as ConfirmationCodeChanged;
+  ConfirmationCodeSubmitted get _value =>
+      super._value as ConfirmationCodeSubmitted;
 
   @override
   $Res call({
     Object? confirmationCode = freezed,
   }) {
-    return _then(ConfirmationCodeChanged(
+    return _then(ConfirmationCodeSubmitted(
       confirmationCode == freezed
           ? _value.confirmationCode
           : confirmationCode // ignore: cast_nullable_to_non_nullable
@@ -148,22 +152,22 @@ class _$ConfirmationCodeChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ConfirmationCodeChanged implements ConfirmationCodeChanged {
-  const _$ConfirmationCodeChanged(this.confirmationCode);
+class _$ConfirmationCodeSubmitted implements ConfirmationCodeSubmitted {
+  const _$ConfirmationCodeSubmitted(this.confirmationCode);
 
   @override
   final String confirmationCode;
 
   @override
   String toString() {
-    return 'SignUpEvent.confirmationCodeChanged(confirmationCode: $confirmationCode)';
+    return 'SignUpEvent.confirmationCodeSubmitted(confirmationCode: $confirmationCode)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is ConfirmationCodeChanged &&
+            other is ConfirmationCodeSubmitted &&
             const DeepCollectionEquality()
                 .equals(other.confirmationCode, confirmationCode));
   }
@@ -174,43 +178,44 @@ class _$ConfirmationCodeChanged implements ConfirmationCodeChanged {
 
   @JsonKey(ignore: true)
   @override
-  $ConfirmationCodeChangedCopyWith<ConfirmationCodeChanged> get copyWith =>
-      _$ConfirmationCodeChangedCopyWithImpl<ConfirmationCodeChanged>(
+  $ConfirmationCodeSubmittedCopyWith<ConfirmationCodeSubmitted> get copyWith =>
+      _$ConfirmationCodeSubmittedCopyWithImpl<ConfirmationCodeSubmitted>(
           this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String confirmationCode) confirmationCodeChanged,
+    required TResult Function(String confirmationCode)
+        confirmationCodeSubmitted,
     required TResult Function(String phoneNumber) phoneNumberChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function() signUpPressed,
   }) {
-    return confirmationCodeChanged(confirmationCode);
+    return confirmationCodeSubmitted(confirmationCode);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String confirmationCode)? confirmationCodeChanged,
+    TResult Function(String confirmationCode)? confirmationCodeSubmitted,
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function()? signUpPressed,
   }) {
-    return confirmationCodeChanged?.call(confirmationCode);
+    return confirmationCodeSubmitted?.call(confirmationCode);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String confirmationCode)? confirmationCodeChanged,
+    TResult Function(String confirmationCode)? confirmationCodeSubmitted,
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function()? signUpPressed,
     required TResult orElse(),
   }) {
-    if (confirmationCodeChanged != null) {
-      return confirmationCodeChanged(confirmationCode);
+    if (confirmationCodeSubmitted != null) {
+      return confirmationCodeSubmitted(confirmationCode);
     }
     return orElse();
   }
@@ -218,49 +223,51 @@ class _$ConfirmationCodeChanged implements ConfirmationCodeChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ConfirmationCodeChanged value)
-        confirmationCodeChanged,
+    required TResult Function(ConfirmationCodeSubmitted value)
+        confirmationCodeSubmitted,
     required TResult Function(PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(SignUpPressed value) signUpPressed,
   }) {
-    return confirmationCodeChanged(this);
+    return confirmationCodeSubmitted(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ConfirmationCodeChanged value)? confirmationCodeChanged,
+    TResult Function(ConfirmationCodeSubmitted value)?
+        confirmationCodeSubmitted,
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SignUpPressed value)? signUpPressed,
   }) {
-    return confirmationCodeChanged?.call(this);
+    return confirmationCodeSubmitted?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ConfirmationCodeChanged value)? confirmationCodeChanged,
+    TResult Function(ConfirmationCodeSubmitted value)?
+        confirmationCodeSubmitted,
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SignUpPressed value)? signUpPressed,
     required TResult orElse(),
   }) {
-    if (confirmationCodeChanged != null) {
-      return confirmationCodeChanged(this);
+    if (confirmationCodeSubmitted != null) {
+      return confirmationCodeSubmitted(this);
     }
     return orElse();
   }
 }
 
-abstract class ConfirmationCodeChanged implements SignUpEvent {
-  const factory ConfirmationCodeChanged(String confirmationCode) =
-      _$ConfirmationCodeChanged;
+abstract class ConfirmationCodeSubmitted implements SignUpEvent {
+  const factory ConfirmationCodeSubmitted(String confirmationCode) =
+      _$ConfirmationCodeSubmitted;
 
   String get confirmationCode;
   @JsonKey(ignore: true)
-  $ConfirmationCodeChangedCopyWith<ConfirmationCodeChanged> get copyWith =>
+  $ConfirmationCodeSubmittedCopyWith<ConfirmationCodeSubmitted> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -330,7 +337,8 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String confirmationCode) confirmationCodeChanged,
+    required TResult Function(String confirmationCode)
+        confirmationCodeSubmitted,
     required TResult Function(String phoneNumber) phoneNumberChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function() signUpPressed,
@@ -341,7 +349,7 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String confirmationCode)? confirmationCodeChanged,
+    TResult Function(String confirmationCode)? confirmationCodeSubmitted,
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function()? signUpPressed,
@@ -352,7 +360,7 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String confirmationCode)? confirmationCodeChanged,
+    TResult Function(String confirmationCode)? confirmationCodeSubmitted,
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function()? signUpPressed,
@@ -367,8 +375,8 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ConfirmationCodeChanged value)
-        confirmationCodeChanged,
+    required TResult Function(ConfirmationCodeSubmitted value)
+        confirmationCodeSubmitted,
     required TResult Function(PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(SignUpPressed value) signUpPressed,
@@ -379,7 +387,8 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ConfirmationCodeChanged value)? confirmationCodeChanged,
+    TResult Function(ConfirmationCodeSubmitted value)?
+        confirmationCodeSubmitted,
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SignUpPressed value)? signUpPressed,
@@ -390,7 +399,8 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ConfirmationCodeChanged value)? confirmationCodeChanged,
+    TResult Function(ConfirmationCodeSubmitted value)?
+        confirmationCodeSubmitted,
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SignUpPressed value)? signUpPressed,
@@ -477,7 +487,8 @@ class _$PasswordChanged implements PasswordChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String confirmationCode) confirmationCodeChanged,
+    required TResult Function(String confirmationCode)
+        confirmationCodeSubmitted,
     required TResult Function(String phoneNumber) phoneNumberChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function() signUpPressed,
@@ -488,7 +499,7 @@ class _$PasswordChanged implements PasswordChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String confirmationCode)? confirmationCodeChanged,
+    TResult Function(String confirmationCode)? confirmationCodeSubmitted,
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function()? signUpPressed,
@@ -499,7 +510,7 @@ class _$PasswordChanged implements PasswordChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String confirmationCode)? confirmationCodeChanged,
+    TResult Function(String confirmationCode)? confirmationCodeSubmitted,
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function()? signUpPressed,
@@ -514,8 +525,8 @@ class _$PasswordChanged implements PasswordChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ConfirmationCodeChanged value)
-        confirmationCodeChanged,
+    required TResult Function(ConfirmationCodeSubmitted value)
+        confirmationCodeSubmitted,
     required TResult Function(PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(SignUpPressed value) signUpPressed,
@@ -526,7 +537,8 @@ class _$PasswordChanged implements PasswordChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ConfirmationCodeChanged value)? confirmationCodeChanged,
+    TResult Function(ConfirmationCodeSubmitted value)?
+        confirmationCodeSubmitted,
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SignUpPressed value)? signUpPressed,
@@ -537,7 +549,8 @@ class _$PasswordChanged implements PasswordChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ConfirmationCodeChanged value)? confirmationCodeChanged,
+    TResult Function(ConfirmationCodeSubmitted value)?
+        confirmationCodeSubmitted,
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SignUpPressed value)? signUpPressed,
@@ -599,7 +612,8 @@ class _$SignUpPressed implements SignUpPressed {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String confirmationCode) confirmationCodeChanged,
+    required TResult Function(String confirmationCode)
+        confirmationCodeSubmitted,
     required TResult Function(String phoneNumber) phoneNumberChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function() signUpPressed,
@@ -610,7 +624,7 @@ class _$SignUpPressed implements SignUpPressed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String confirmationCode)? confirmationCodeChanged,
+    TResult Function(String confirmationCode)? confirmationCodeSubmitted,
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function()? signUpPressed,
@@ -621,7 +635,7 @@ class _$SignUpPressed implements SignUpPressed {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String confirmationCode)? confirmationCodeChanged,
+    TResult Function(String confirmationCode)? confirmationCodeSubmitted,
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function()? signUpPressed,
@@ -636,8 +650,8 @@ class _$SignUpPressed implements SignUpPressed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ConfirmationCodeChanged value)
-        confirmationCodeChanged,
+    required TResult Function(ConfirmationCodeSubmitted value)
+        confirmationCodeSubmitted,
     required TResult Function(PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(SignUpPressed value) signUpPressed,
@@ -648,7 +662,8 @@ class _$SignUpPressed implements SignUpPressed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ConfirmationCodeChanged value)? confirmationCodeChanged,
+    TResult Function(ConfirmationCodeSubmitted value)?
+        confirmationCodeSubmitted,
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SignUpPressed value)? signUpPressed,
@@ -659,7 +674,8 @@ class _$SignUpPressed implements SignUpPressed {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ConfirmationCodeChanged value)? confirmationCodeChanged,
+    TResult Function(ConfirmationCodeSubmitted value)?
+        confirmationCodeSubmitted,
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(SignUpPressed value)? signUpPressed,
@@ -681,17 +697,18 @@ class _$SignUpStateTearOff {
   const _$SignUpStateTearOff();
 
   _SignUpState call(
-      {required String confirmationCode,
-      required String phoneNumber,
+      {required String phoneNumber,
       required String password,
       required bool isSubmitting,
-      required Option<Either<AuthenticationFailures, User>> failureOrUser}) {
+      required Option<Either<AuthenticationFailures, User>> failureOrUser,
+      required Option<Either<AuthenticationFailures, Unit>>
+          failureOrSuccessConfirmation}) {
     return _SignUpState(
-      confirmationCode: confirmationCode,
       phoneNumber: phoneNumber,
       password: password,
       isSubmitting: isSubmitting,
       failureOrUser: failureOrUser,
+      failureOrSuccessConfirmation: failureOrSuccessConfirmation,
     );
   }
 }
@@ -701,12 +718,13 @@ const $SignUpState = _$SignUpStateTearOff();
 
 /// @nodoc
 mixin _$SignUpState {
-  String get confirmationCode => throw _privateConstructorUsedError;
   String get phoneNumber => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   Option<Either<AuthenticationFailures, User>> get failureOrUser =>
       throw _privateConstructorUsedError;
+  Option<Either<AuthenticationFailures, Unit>>
+      get failureOrSuccessConfirmation => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SignUpStateCopyWith<SignUpState> get copyWith =>
@@ -719,11 +737,12 @@ abstract class $SignUpStateCopyWith<$Res> {
           SignUpState value, $Res Function(SignUpState) then) =
       _$SignUpStateCopyWithImpl<$Res>;
   $Res call(
-      {String confirmationCode,
-      String phoneNumber,
+      {String phoneNumber,
       String password,
       bool isSubmitting,
-      Option<Either<AuthenticationFailures, User>> failureOrUser});
+      Option<Either<AuthenticationFailures, User>> failureOrUser,
+      Option<Either<AuthenticationFailures, Unit>>
+          failureOrSuccessConfirmation});
 }
 
 /// @nodoc
@@ -736,17 +755,13 @@ class _$SignUpStateCopyWithImpl<$Res> implements $SignUpStateCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? confirmationCode = freezed,
     Object? phoneNumber = freezed,
     Object? password = freezed,
     Object? isSubmitting = freezed,
     Object? failureOrUser = freezed,
+    Object? failureOrSuccessConfirmation = freezed,
   }) {
     return _then(_value.copyWith(
-      confirmationCode: confirmationCode == freezed
-          ? _value.confirmationCode
-          : confirmationCode // ignore: cast_nullable_to_non_nullable
-              as String,
       phoneNumber: phoneNumber == freezed
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
@@ -763,6 +778,10 @@ class _$SignUpStateCopyWithImpl<$Res> implements $SignUpStateCopyWith<$Res> {
           ? _value.failureOrUser
           : failureOrUser // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthenticationFailures, User>>,
+      failureOrSuccessConfirmation: failureOrSuccessConfirmation == freezed
+          ? _value.failureOrSuccessConfirmation
+          : failureOrSuccessConfirmation // ignore: cast_nullable_to_non_nullable
+              as Option<Either<AuthenticationFailures, Unit>>,
     ));
   }
 }
@@ -775,11 +794,12 @@ abstract class _$SignUpStateCopyWith<$Res>
       __$SignUpStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String confirmationCode,
-      String phoneNumber,
+      {String phoneNumber,
       String password,
       bool isSubmitting,
-      Option<Either<AuthenticationFailures, User>> failureOrUser});
+      Option<Either<AuthenticationFailures, User>> failureOrUser,
+      Option<Either<AuthenticationFailures, Unit>>
+          failureOrSuccessConfirmation});
 }
 
 /// @nodoc
@@ -794,17 +814,13 @@ class __$SignUpStateCopyWithImpl<$Res> extends _$SignUpStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? confirmationCode = freezed,
     Object? phoneNumber = freezed,
     Object? password = freezed,
     Object? isSubmitting = freezed,
     Object? failureOrUser = freezed,
+    Object? failureOrSuccessConfirmation = freezed,
   }) {
     return _then(_SignUpState(
-      confirmationCode: confirmationCode == freezed
-          ? _value.confirmationCode
-          : confirmationCode // ignore: cast_nullable_to_non_nullable
-              as String,
       phoneNumber: phoneNumber == freezed
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
@@ -821,6 +837,10 @@ class __$SignUpStateCopyWithImpl<$Res> extends _$SignUpStateCopyWithImpl<$Res>
           ? _value.failureOrUser
           : failureOrUser // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthenticationFailures, User>>,
+      failureOrSuccessConfirmation: failureOrSuccessConfirmation == freezed
+          ? _value.failureOrSuccessConfirmation
+          : failureOrSuccessConfirmation // ignore: cast_nullable_to_non_nullable
+              as Option<Either<AuthenticationFailures, Unit>>,
     ));
   }
 }
@@ -829,14 +849,12 @@ class __$SignUpStateCopyWithImpl<$Res> extends _$SignUpStateCopyWithImpl<$Res>
 
 class _$_SignUpState implements _SignUpState {
   const _$_SignUpState(
-      {required this.confirmationCode,
-      required this.phoneNumber,
+      {required this.phoneNumber,
       required this.password,
       required this.isSubmitting,
-      required this.failureOrUser});
+      required this.failureOrUser,
+      required this.failureOrSuccessConfirmation});
 
-  @override
-  final String confirmationCode;
   @override
   final String phoneNumber;
   @override
@@ -845,10 +863,13 @@ class _$_SignUpState implements _SignUpState {
   final bool isSubmitting;
   @override
   final Option<Either<AuthenticationFailures, User>> failureOrUser;
+  @override
+  final Option<Either<AuthenticationFailures, Unit>>
+      failureOrSuccessConfirmation;
 
   @override
   String toString() {
-    return 'SignUpState(confirmationCode: $confirmationCode, phoneNumber: $phoneNumber, password: $password, isSubmitting: $isSubmitting, failureOrUser: $failureOrUser)';
+    return 'SignUpState(phoneNumber: $phoneNumber, password: $password, isSubmitting: $isSubmitting, failureOrUser: $failureOrUser, failureOrSuccessConfirmation: $failureOrSuccessConfirmation)';
   }
 
   @override
@@ -857,24 +878,25 @@ class _$_SignUpState implements _SignUpState {
         (other.runtimeType == runtimeType &&
             other is _SignUpState &&
             const DeepCollectionEquality()
-                .equals(other.confirmationCode, confirmationCode) &&
-            const DeepCollectionEquality()
                 .equals(other.phoneNumber, phoneNumber) &&
             const DeepCollectionEquality().equals(other.password, password) &&
             const DeepCollectionEquality()
                 .equals(other.isSubmitting, isSubmitting) &&
             const DeepCollectionEquality()
-                .equals(other.failureOrUser, failureOrUser));
+                .equals(other.failureOrUser, failureOrUser) &&
+            const DeepCollectionEquality().equals(
+                other.failureOrSuccessConfirmation,
+                failureOrSuccessConfirmation));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(confirmationCode),
       const DeepCollectionEquality().hash(phoneNumber),
       const DeepCollectionEquality().hash(password),
       const DeepCollectionEquality().hash(isSubmitting),
-      const DeepCollectionEquality().hash(failureOrUser));
+      const DeepCollectionEquality().hash(failureOrUser),
+      const DeepCollectionEquality().hash(failureOrSuccessConfirmation));
 
   @JsonKey(ignore: true)
   @override
@@ -884,15 +906,13 @@ class _$_SignUpState implements _SignUpState {
 
 abstract class _SignUpState implements SignUpState {
   const factory _SignUpState(
-      {required String confirmationCode,
-      required String phoneNumber,
+      {required String phoneNumber,
       required String password,
       required bool isSubmitting,
-      required Option<Either<AuthenticationFailures, User>>
-          failureOrUser}) = _$_SignUpState;
+      required Option<Either<AuthenticationFailures, User>> failureOrUser,
+      required Option<Either<AuthenticationFailures, Unit>>
+          failureOrSuccessConfirmation}) = _$_SignUpState;
 
-  @override
-  String get confirmationCode;
   @override
   String get phoneNumber;
   @override
@@ -901,6 +921,8 @@ abstract class _SignUpState implements SignUpState {
   bool get isSubmitting;
   @override
   Option<Either<AuthenticationFailures, User>> get failureOrUser;
+  @override
+  Option<Either<AuthenticationFailures, Unit>> get failureOrSuccessConfirmation;
   @override
   @JsonKey(ignore: true)
   _$SignUpStateCopyWith<_SignUpState> get copyWith =>
