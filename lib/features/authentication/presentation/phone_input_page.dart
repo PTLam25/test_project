@@ -5,6 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../core/presentation/routes/app_router.dart';
 import '../../core/presentation/themes/themes.dart';
+import '../application/authentication_bloc/authentication_bloc.dart';
+import '../application/sign_in_bloc/sign_in_bloc.dart';
 import '../application/sign_up_bloc/sign_up_bloc.dart';
 
 class PhoneInputPage extends StatefulWidget {
@@ -114,10 +116,24 @@ class _PhoneInputPageState extends State<PhoneInputPage> {
   }
 
   void _onSubmit() {
-    context
-      ..read<SignUpBloc>().add(
-        SignUpEvent.phoneNumberChanged(_phoneNumberController.text),
-      )
-      ..router.pushNamed(AppRoutes.smsCodeConfirmation);
+    final authenticationState = context.read<AuthenticationBloc>().state;
+
+    authenticationState.whenOrNull(
+      unauthenticated: (_, bool isRegistered) {
+        if (isRegistered) {
+          context
+            ..read<SignInBloc>().add(
+              SignInEvent.phoneNumberChanged(_phoneNumberController.text),
+            )
+            ..router.pushNamed(AppRoutes.passwordInput);
+        } else {
+          context
+            ..read<SignUpBloc>().add(
+              SignUpEvent.phoneNumberChanged(_phoneNumberController.text),
+            )
+            ..router.pushNamed(AppRoutes.smsCodeConfirmation);
+        }
+      },
+    );
   }
 }
