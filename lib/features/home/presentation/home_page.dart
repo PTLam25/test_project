@@ -23,7 +23,9 @@ class HomePage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  const Text('Home'),
+                  Text(user.phoneNumber),
+                  const SizedBox(height: 5.0),
+                  Text(user.password),
                   const SizedBox(height: 20.0),
                   ElevatedButton(
                     onPressed: () => context.read<AuthenticationBloc>().add(
