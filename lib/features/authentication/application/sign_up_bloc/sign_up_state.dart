@@ -5,7 +5,6 @@ class SignUpState with _$SignUpState {
   const factory SignUpState({
     required String phoneNumber,
     required String password,
-    required bool isSubmitting,
     required Option<Either<AuthenticationFailures, User>> failureOrUser,
     required Option<Either<AuthenticationFailures, Unit>>
         failureOrSuccessConfirmation,
@@ -14,7 +13,6 @@ class SignUpState with _$SignUpState {
   factory SignUpState.initial() => SignUpState(
         phoneNumber: '',
         password: '',
-        isSubmitting: false,
         failureOrUser: none(),
         failureOrSuccessConfirmation: none(),
       );

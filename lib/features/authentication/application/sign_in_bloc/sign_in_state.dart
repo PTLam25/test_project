@@ -5,14 +5,12 @@ class SignInState with _$SignInState {
   const factory SignInState({
     required String phoneNumber,
     required String password,
-    required bool isSubmitting,
     required Option<Either<AuthenticationFailures, User>> failureOrUser,
   }) = _SignInState;
 
   factory SignInState.initial() => SignInState(
-    phoneNumber: '',
-    password: '',
-    isSubmitting: false,
-    failureOrUser: none(),
-  );
+        phoneNumber: '',
+        password: '',
+        failureOrUser: none(),
+      );
 }

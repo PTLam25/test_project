@@ -106,6 +106,22 @@ class _PhoneInputPageState extends State<PhoneInputPage> {
   }
 
   String? _onPhoneNumberChanged(String? value) {
+    final authenticationState = context.read<AuthenticationBloc>().state;
+
+    authenticationState.whenOrNull(
+      unauthenticated: (_, bool isRegistered) {
+        if (isRegistered) {
+          context.read<SignInBloc>().add(
+                SignInEvent.phoneNumberChanged(_phoneNumberController.text),
+              );
+        } else {
+          context.read<SignUpBloc>().add(
+                SignUpEvent.phoneNumberChanged(_phoneNumberController.text),
+              );
+        }
+      },
+    );
+
     if (value == null) {
       return null;
     }
@@ -121,17 +137,9 @@ class _PhoneInputPageState extends State<PhoneInputPage> {
     authenticationState.whenOrNull(
       unauthenticated: (_, bool isRegistered) {
         if (isRegistered) {
-          context
-            ..read<SignInBloc>().add(
-              SignInEvent.phoneNumberChanged(_phoneNumberController.text),
-            )
-            ..router.pushNamed(AppRoutes.passwordInput);
+          context.router.pushNamed(AppRoutes.passwordInput);
         } else {
-          context
-            ..read<SignUpBloc>().add(
-              SignUpEvent.phoneNumberChanged(_phoneNumberController.text),
-            )
-            ..router.pushNamed(AppRoutes.smsCodeConfirmation);
+          context.router.pushNamed(AppRoutes.smsCodeConfirmation);
         }
       },
     );

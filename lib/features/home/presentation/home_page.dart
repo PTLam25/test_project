@@ -31,6 +31,13 @@ class HomePage extends StatelessWidget {
                         ),
                     child: const Text('Выйти'),
                   ),
+                  const SizedBox(height: 20.0),
+                  ElevatedButton(
+                    onPressed: () => context.read<AuthenticationBloc>().add(
+                          const AuthenticationEvent.resetData(),
+                        ),
+                    child: const Text('СБРОСИТЬ ДАННЫЕ ПРИЛОЖЕНИЯ'),
+                  ),
                 ],
               ),
             ),

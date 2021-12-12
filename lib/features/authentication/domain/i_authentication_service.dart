@@ -21,4 +21,6 @@ abstract class AuthenticationService {
   );
 
   Future<Either<AuthenticationFailures, Unit>> logout();
+
+  Future<Either<AuthenticationFailures, Unit>> resetData();
 }

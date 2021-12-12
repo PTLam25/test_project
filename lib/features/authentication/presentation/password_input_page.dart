@@ -7,6 +7,7 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 import '../../core/presentation/routes/app_router.gr.dart';
 import '../../core/presentation/themes/themes.dart';
 import '../application/authentication_bloc/authentication_bloc.dart';
+import '../application/sign_in_bloc/sign_in_bloc.dart';
 import '../application/sign_up_bloc/sign_up_bloc.dart';
 
 class PasswordInputPage extends StatefulWidget {
@@ -19,6 +20,7 @@ class PasswordInputPage extends StatefulWidget {
 }
 
 class _PasswordInputPageState extends State<PasswordInputPage> {
+  bool _isSubmitting = false;
   bool _isFormValid = false;
 
   final TextEditingController _passwordController = TextEditingController();
@@ -35,9 +37,17 @@ class _PasswordInputPageState extends State<PasswordInputPage> {
     return BlocConsumer<AuthenticationBloc, AuthenticationState>(
       listener: _authenticationBlocListener,
       builder: (_, AuthenticationState state) {
-        return BlocListener<SignUpBloc, SignUpState>(
-          listenWhen: _signUpBlocListenWhen,
-          listener: _signUpBlocListener,
+        return MultiBlocListener(
+          listeners: [
+            BlocListener<SignUpBloc, SignUpState>(
+              listenWhen: _signUpBlocListenWhen,
+              listener: _signUpBlocListener,
+            ),
+            BlocListener<SignInBloc, SignInState>(
+              listenWhen: _signInBlocListenWhen,
+              listener: _signInBlocListener,
+            ),
+          ],
           child: Scaffold(
             appBar: AppBar(
               leading: IconButton(
@@ -96,16 +106,21 @@ class _PasswordInputPageState extends State<PasswordInputPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         ElevatedButton(
-                          onPressed: _isFormValid ? _onSubmit : null,
-                          child: Text(
-                            'Продолжить',
-                            style:
-                                Theme.of(context).textTheme.headline5?.copyWith(
-                                      color: _isFormValid
-                                          ? AppColors.white
-                                          : AppColors.gray,
-                                    ),
-                          ),
+                          onPressed:
+                              _isFormValid && !_isSubmitting ? _onSubmit : null,
+                          child: _isSubmitting
+                              ? const CircularProgressIndicator()
+                              : Text(
+                                  'Продолжить',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headline5
+                                      ?.copyWith(
+                                        color: _isFormValid
+                                            ? AppColors.white
+                                            : AppColors.gray,
+                                      ),
+                                ),
                         ),
                       ],
                     ),
@@ -130,13 +145,39 @@ class _PasswordInputPageState extends State<PasswordInputPage> {
   }
 
   void _onPinCodeChanged(String value) {
+    final authenticationState = context.read<AuthenticationBloc>().state;
+
+    authenticationState.whenOrNull(unauthenticated: (_, bool isRegistered) {
+      if (isRegistered) {
+        context
+            .read<SignInBloc>()
+            .add(SignInEvent.passwordChanged(_passwordController.text));
+      } else {
+        context
+            .read<SignUpBloc>()
+            .add(SignUpEvent.passwordChanged(_passwordController.text));
+      }
+    });
+
     setState(() {
       _isFormValid = value.length == 4 ? true : false;
     });
   }
 
   void _onSubmit() {
-    context.read<SignUpBloc>().add(const SignUpEvent.signUpPressed());
+    setState(() {
+      _isSubmitting = true;
+    });
+
+    final authenticationState = context.read<AuthenticationBloc>().state;
+
+    authenticationState.whenOrNull(unauthenticated: (_, bool isRegistered) {
+      if (isRegistered) {
+        context.read<SignInBloc>().add(const SignInEvent.signInPressed());
+      } else {
+        context.read<SignUpBloc>().add(const SignUpEvent.signUpPressed());
+      }
+    });
   }
 
   bool _signUpBlocListenWhen(
@@ -150,9 +191,59 @@ class _PasswordInputPageState extends State<PasswordInputPage> {
     BuildContext context,
     SignUpState state,
   ) {
-    context
-        .read<AuthenticationBloc>()
-        .add(const AuthenticationEvent.checkAuthenticationStatus());
+    setState(() {
+      _isSubmitting = false;
+    });
+
+    state.failureOrUser.fold(
+      () => null,
+      (result) => result.fold(
+        (failure) {
+          const snackBar = SnackBar(content: Text('Что-то произошло не так!'));
+
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        },
+        (_) => context
+            .read<AuthenticationBloc>()
+            .add(const AuthenticationEvent.checkAuthenticationStatus()),
+      ),
+    );
+  }
+
+  bool _signInBlocListenWhen(
+    SignInState previous,
+    SignInState current,
+  ) {
+    return previous.failureOrUser != current.failureOrUser;
+  }
+
+  void _signInBlocListener(
+    BuildContext context,
+    SignInState state,
+  ) {
+    setState(() {
+      _isSubmitting = false;
+    });
+
+    state.failureOrUser.fold(
+      () => null,
+      (result) => result.fold(
+        (failure) => failure.maybeWhen(orElse: () {
+          const snackBar = SnackBar(content: Text('Что-то произошло не так!'));
+
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        }, invalidPhoneNumberAndPasswordCombination: () {
+          const snackBar = SnackBar(
+            content: Text('Неправильный пароль или номер телефона!'),
+          );
+
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        }),
+        (_) => context
+            .read<AuthenticationBloc>()
+            .add(const AuthenticationEvent.checkAuthenticationStatus()),
+      ),
+    );
   }
 
   void _authenticationBlocListener(

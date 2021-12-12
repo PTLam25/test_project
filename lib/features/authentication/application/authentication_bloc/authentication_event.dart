@@ -8,4 +8,6 @@ class AuthenticationEvent with _$AuthenticationEvent {
       CheckAuthenticationStatus;
 
   const factory AuthenticationEvent.logout() = Logout;
+
+  const factory AuthenticationEvent.resetData() = ResetData;
 }

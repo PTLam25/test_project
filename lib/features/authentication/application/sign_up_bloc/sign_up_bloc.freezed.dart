@@ -699,14 +699,12 @@ class _$SignUpStateTearOff {
   _SignUpState call(
       {required String phoneNumber,
       required String password,
-      required bool isSubmitting,
       required Option<Either<AuthenticationFailures, User>> failureOrUser,
       required Option<Either<AuthenticationFailures, Unit>>
           failureOrSuccessConfirmation}) {
     return _SignUpState(
       phoneNumber: phoneNumber,
       password: password,
-      isSubmitting: isSubmitting,
       failureOrUser: failureOrUser,
       failureOrSuccessConfirmation: failureOrSuccessConfirmation,
     );
@@ -720,7 +718,6 @@ const $SignUpState = _$SignUpStateTearOff();
 mixin _$SignUpState {
   String get phoneNumber => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
-  bool get isSubmitting => throw _privateConstructorUsedError;
   Option<Either<AuthenticationFailures, User>> get failureOrUser =>
       throw _privateConstructorUsedError;
   Option<Either<AuthenticationFailures, Unit>>
@@ -739,7 +736,6 @@ abstract class $SignUpStateCopyWith<$Res> {
   $Res call(
       {String phoneNumber,
       String password,
-      bool isSubmitting,
       Option<Either<AuthenticationFailures, User>> failureOrUser,
       Option<Either<AuthenticationFailures, Unit>>
           failureOrSuccessConfirmation});
@@ -757,7 +753,6 @@ class _$SignUpStateCopyWithImpl<$Res> implements $SignUpStateCopyWith<$Res> {
   $Res call({
     Object? phoneNumber = freezed,
     Object? password = freezed,
-    Object? isSubmitting = freezed,
     Object? failureOrUser = freezed,
     Object? failureOrSuccessConfirmation = freezed,
   }) {
@@ -770,10 +765,6 @@ class _$SignUpStateCopyWithImpl<$Res> implements $SignUpStateCopyWith<$Res> {
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      isSubmitting: isSubmitting == freezed
-          ? _value.isSubmitting
-          : isSubmitting // ignore: cast_nullable_to_non_nullable
-              as bool,
       failureOrUser: failureOrUser == freezed
           ? _value.failureOrUser
           : failureOrUser // ignore: cast_nullable_to_non_nullable
@@ -796,7 +787,6 @@ abstract class _$SignUpStateCopyWith<$Res>
   $Res call(
       {String phoneNumber,
       String password,
-      bool isSubmitting,
       Option<Either<AuthenticationFailures, User>> failureOrUser,
       Option<Either<AuthenticationFailures, Unit>>
           failureOrSuccessConfirmation});
@@ -816,7 +806,6 @@ class __$SignUpStateCopyWithImpl<$Res> extends _$SignUpStateCopyWithImpl<$Res>
   $Res call({
     Object? phoneNumber = freezed,
     Object? password = freezed,
-    Object? isSubmitting = freezed,
     Object? failureOrUser = freezed,
     Object? failureOrSuccessConfirmation = freezed,
   }) {
@@ -829,10 +818,6 @@ class __$SignUpStateCopyWithImpl<$Res> extends _$SignUpStateCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      isSubmitting: isSubmitting == freezed
-          ? _value.isSubmitting
-          : isSubmitting // ignore: cast_nullable_to_non_nullable
-              as bool,
       failureOrUser: failureOrUser == freezed
           ? _value.failureOrUser
           : failureOrUser // ignore: cast_nullable_to_non_nullable
@@ -851,7 +836,6 @@ class _$_SignUpState implements _SignUpState {
   const _$_SignUpState(
       {required this.phoneNumber,
       required this.password,
-      required this.isSubmitting,
       required this.failureOrUser,
       required this.failureOrSuccessConfirmation});
 
@@ -860,8 +844,6 @@ class _$_SignUpState implements _SignUpState {
   @override
   final String password;
   @override
-  final bool isSubmitting;
-  @override
   final Option<Either<AuthenticationFailures, User>> failureOrUser;
   @override
   final Option<Either<AuthenticationFailures, Unit>>
@@ -869,7 +851,7 @@ class _$_SignUpState implements _SignUpState {
 
   @override
   String toString() {
-    return 'SignUpState(phoneNumber: $phoneNumber, password: $password, isSubmitting: $isSubmitting, failureOrUser: $failureOrUser, failureOrSuccessConfirmation: $failureOrSuccessConfirmation)';
+    return 'SignUpState(phoneNumber: $phoneNumber, password: $password, failureOrUser: $failureOrUser, failureOrSuccessConfirmation: $failureOrSuccessConfirmation)';
   }
 
   @override
@@ -880,8 +862,6 @@ class _$_SignUpState implements _SignUpState {
             const DeepCollectionEquality()
                 .equals(other.phoneNumber, phoneNumber) &&
             const DeepCollectionEquality().equals(other.password, password) &&
-            const DeepCollectionEquality()
-                .equals(other.isSubmitting, isSubmitting) &&
             const DeepCollectionEquality()
                 .equals(other.failureOrUser, failureOrUser) &&
             const DeepCollectionEquality().equals(
@@ -894,7 +874,6 @@ class _$_SignUpState implements _SignUpState {
       runtimeType,
       const DeepCollectionEquality().hash(phoneNumber),
       const DeepCollectionEquality().hash(password),
-      const DeepCollectionEquality().hash(isSubmitting),
       const DeepCollectionEquality().hash(failureOrUser),
       const DeepCollectionEquality().hash(failureOrSuccessConfirmation));
 
@@ -908,7 +887,6 @@ abstract class _SignUpState implements SignUpState {
   const factory _SignUpState(
       {required String phoneNumber,
       required String password,
-      required bool isSubmitting,
       required Option<Either<AuthenticationFailures, User>> failureOrUser,
       required Option<Either<AuthenticationFailures, Unit>>
           failureOrSuccessConfirmation}) = _$_SignUpState;
@@ -917,8 +895,6 @@ abstract class _SignUpState implements SignUpState {
   String get phoneNumber;
   @override
   String get password;
-  @override
-  bool get isSubmitting;
   @override
   Option<Either<AuthenticationFailures, User>> get failureOrUser;
   @override

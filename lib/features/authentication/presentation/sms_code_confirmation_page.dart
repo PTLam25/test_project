@@ -19,6 +19,7 @@ class SmsCodeConfirmationPage extends StatefulWidget {
 }
 
 class _SmsCodeConfirmationPageState extends State<SmsCodeConfirmationPage> {
+  bool _isSubmitting = false;
   bool _isFormValid = false;
 
   final TextEditingController _confirmationCodeController =
@@ -120,16 +121,21 @@ class _SmsCodeConfirmationPageState extends State<SmsCodeConfirmationPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       ElevatedButton(
-                        onPressed: _isFormValid ? _onSubmit : null,
-                        child: Text(
-                          'Продолжить',
-                          style:
-                              Theme.of(context).textTheme.headline5?.copyWith(
-                                    color: _isFormValid
-                                        ? AppColors.white
-                                        : AppColors.gray,
-                                  ),
-                        ),
+                        onPressed:
+                            _isFormValid && !_isSubmitting ? _onSubmit : null,
+                        child: _isSubmitting
+                            ? const CircularProgressIndicator()
+                            : Text(
+                                'Продолжить',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headline5
+                                    ?.copyWith(
+                                      color: _isFormValid
+                                          ? AppColors.white
+                                          : AppColors.gray,
+                                    ),
+                              ),
                       ),
                     ],
                   ),
@@ -159,6 +165,10 @@ class _SmsCodeConfirmationPageState extends State<SmsCodeConfirmationPage> {
   }
 
   void _onSubmit() {
+    setState(() {
+      _isSubmitting = true;
+    });
+
     context.read<SignUpBloc>().add(
           SignUpEvent.confirmationCodeSubmitted(
             _confirmationCodeController.text,
@@ -178,6 +188,10 @@ class _SmsCodeConfirmationPageState extends State<SmsCodeConfirmationPage> {
     BuildContext context,
     SignUpState state,
   ) {
+    setState(() {
+      _isSubmitting = false;
+    });
+
     state.failureOrSuccessConfirmation.fold(
       () => null,
       (result) => result.fold(

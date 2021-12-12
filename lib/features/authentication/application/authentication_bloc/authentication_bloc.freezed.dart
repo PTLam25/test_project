@@ -24,6 +24,10 @@ class _$AuthenticationEventTearOff {
   Logout logout() {
     return const Logout();
   }
+
+  ResetData resetData() {
+    return const ResetData();
+  }
 }
 
 /// @nodoc
@@ -35,18 +39,21 @@ mixin _$AuthenticationEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() checkAuthenticationStatus,
     required TResult Function() logout,
+    required TResult Function() resetData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? checkAuthenticationStatus,
     TResult Function()? logout,
+    TResult Function()? resetData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? checkAuthenticationStatus,
     TResult Function()? logout,
+    TResult Function()? resetData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +62,7 @@ mixin _$AuthenticationEvent {
     required TResult Function(CheckAuthenticationStatus value)
         checkAuthenticationStatus,
     required TResult Function(Logout value) logout,
+    required TResult Function(ResetData value) resetData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,6 +70,7 @@ mixin _$AuthenticationEvent {
     TResult Function(CheckAuthenticationStatus value)?
         checkAuthenticationStatus,
     TResult Function(Logout value)? logout,
+    TResult Function(ResetData value)? resetData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +78,7 @@ mixin _$AuthenticationEvent {
     TResult Function(CheckAuthenticationStatus value)?
         checkAuthenticationStatus,
     TResult Function(Logout value)? logout,
+    TResult Function(ResetData value)? resetData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -136,6 +146,7 @@ class _$CheckAuthenticationStatus extends CheckAuthenticationStatus {
   TResult when<TResult extends Object?>({
     required TResult Function() checkAuthenticationStatus,
     required TResult Function() logout,
+    required TResult Function() resetData,
   }) {
     return checkAuthenticationStatus();
   }
@@ -145,6 +156,7 @@ class _$CheckAuthenticationStatus extends CheckAuthenticationStatus {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? checkAuthenticationStatus,
     TResult Function()? logout,
+    TResult Function()? resetData,
   }) {
     return checkAuthenticationStatus?.call();
   }
@@ -154,6 +166,7 @@ class _$CheckAuthenticationStatus extends CheckAuthenticationStatus {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? checkAuthenticationStatus,
     TResult Function()? logout,
+    TResult Function()? resetData,
     required TResult orElse(),
   }) {
     if (checkAuthenticationStatus != null) {
@@ -168,6 +181,7 @@ class _$CheckAuthenticationStatus extends CheckAuthenticationStatus {
     required TResult Function(CheckAuthenticationStatus value)
         checkAuthenticationStatus,
     required TResult Function(Logout value) logout,
+    required TResult Function(ResetData value) resetData,
   }) {
     return checkAuthenticationStatus(this);
   }
@@ -178,6 +192,7 @@ class _$CheckAuthenticationStatus extends CheckAuthenticationStatus {
     TResult Function(CheckAuthenticationStatus value)?
         checkAuthenticationStatus,
     TResult Function(Logout value)? logout,
+    TResult Function(ResetData value)? resetData,
   }) {
     return checkAuthenticationStatus?.call(this);
   }
@@ -188,6 +203,7 @@ class _$CheckAuthenticationStatus extends CheckAuthenticationStatus {
     TResult Function(CheckAuthenticationStatus value)?
         checkAuthenticationStatus,
     TResult Function(Logout value)? logout,
+    TResult Function(ResetData value)? resetData,
     required TResult orElse(),
   }) {
     if (checkAuthenticationStatus != null) {
@@ -242,6 +258,7 @@ class _$Logout extends Logout {
   TResult when<TResult extends Object?>({
     required TResult Function() checkAuthenticationStatus,
     required TResult Function() logout,
+    required TResult Function() resetData,
   }) {
     return logout();
   }
@@ -251,6 +268,7 @@ class _$Logout extends Logout {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? checkAuthenticationStatus,
     TResult Function()? logout,
+    TResult Function()? resetData,
   }) {
     return logout?.call();
   }
@@ -260,6 +278,7 @@ class _$Logout extends Logout {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? checkAuthenticationStatus,
     TResult Function()? logout,
+    TResult Function()? resetData,
     required TResult orElse(),
   }) {
     if (logout != null) {
@@ -274,6 +293,7 @@ class _$Logout extends Logout {
     required TResult Function(CheckAuthenticationStatus value)
         checkAuthenticationStatus,
     required TResult Function(Logout value) logout,
+    required TResult Function(ResetData value) resetData,
   }) {
     return logout(this);
   }
@@ -284,6 +304,7 @@ class _$Logout extends Logout {
     TResult Function(CheckAuthenticationStatus value)?
         checkAuthenticationStatus,
     TResult Function(Logout value)? logout,
+    TResult Function(ResetData value)? resetData,
   }) {
     return logout?.call(this);
   }
@@ -294,6 +315,7 @@ class _$Logout extends Logout {
     TResult Function(CheckAuthenticationStatus value)?
         checkAuthenticationStatus,
     TResult Function(Logout value)? logout,
+    TResult Function(ResetData value)? resetData,
     required TResult orElse(),
   }) {
     if (logout != null) {
@@ -306,6 +328,119 @@ class _$Logout extends Logout {
 abstract class Logout extends AuthenticationEvent {
   const factory Logout() = _$Logout;
   const Logout._() : super._();
+}
+
+/// @nodoc
+abstract class $ResetDataCopyWith<$Res> {
+  factory $ResetDataCopyWith(ResetData value, $Res Function(ResetData) then) =
+      _$ResetDataCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$ResetDataCopyWithImpl<$Res>
+    extends _$AuthenticationEventCopyWithImpl<$Res>
+    implements $ResetDataCopyWith<$Res> {
+  _$ResetDataCopyWithImpl(ResetData _value, $Res Function(ResetData) _then)
+      : super(_value, (v) => _then(v as ResetData));
+
+  @override
+  ResetData get _value => super._value as ResetData;
+}
+
+/// @nodoc
+
+class _$ResetData extends ResetData {
+  const _$ResetData() : super._();
+
+  @override
+  String toString() {
+    return 'AuthenticationEvent.resetData()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is ResetData);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() checkAuthenticationStatus,
+    required TResult Function() logout,
+    required TResult Function() resetData,
+  }) {
+    return resetData();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? checkAuthenticationStatus,
+    TResult Function()? logout,
+    TResult Function()? resetData,
+  }) {
+    return resetData?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? checkAuthenticationStatus,
+    TResult Function()? logout,
+    TResult Function()? resetData,
+    required TResult orElse(),
+  }) {
+    if (resetData != null) {
+      return resetData();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CheckAuthenticationStatus value)
+        checkAuthenticationStatus,
+    required TResult Function(Logout value) logout,
+    required TResult Function(ResetData value) resetData,
+  }) {
+    return resetData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(CheckAuthenticationStatus value)?
+        checkAuthenticationStatus,
+    TResult Function(Logout value)? logout,
+    TResult Function(ResetData value)? resetData,
+  }) {
+    return resetData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CheckAuthenticationStatus value)?
+        checkAuthenticationStatus,
+    TResult Function(Logout value)? logout,
+    TResult Function(ResetData value)? resetData,
+    required TResult orElse(),
+  }) {
+    if (resetData != null) {
+      return resetData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResetData extends AuthenticationEvent {
+  const factory ResetData() = _$ResetData;
+  const ResetData._() : super._();
 }
 
 /// @nodoc

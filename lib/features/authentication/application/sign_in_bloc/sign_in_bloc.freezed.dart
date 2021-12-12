@@ -499,12 +499,10 @@ class _$SignInStateTearOff {
   _SignInState call(
       {required String phoneNumber,
       required String password,
-      required bool isSubmitting,
       required Option<Either<AuthenticationFailures, User>> failureOrUser}) {
     return _SignInState(
       phoneNumber: phoneNumber,
       password: password,
-      isSubmitting: isSubmitting,
       failureOrUser: failureOrUser,
     );
   }
@@ -517,7 +515,6 @@ const $SignInState = _$SignInStateTearOff();
 mixin _$SignInState {
   String get phoneNumber => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
-  bool get isSubmitting => throw _privateConstructorUsedError;
   Option<Either<AuthenticationFailures, User>> get failureOrUser =>
       throw _privateConstructorUsedError;
 
@@ -534,7 +531,6 @@ abstract class $SignInStateCopyWith<$Res> {
   $Res call(
       {String phoneNumber,
       String password,
-      bool isSubmitting,
       Option<Either<AuthenticationFailures, User>> failureOrUser});
 }
 
@@ -550,7 +546,6 @@ class _$SignInStateCopyWithImpl<$Res> implements $SignInStateCopyWith<$Res> {
   $Res call({
     Object? phoneNumber = freezed,
     Object? password = freezed,
-    Object? isSubmitting = freezed,
     Object? failureOrUser = freezed,
   }) {
     return _then(_value.copyWith(
@@ -562,10 +557,6 @@ class _$SignInStateCopyWithImpl<$Res> implements $SignInStateCopyWith<$Res> {
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      isSubmitting: isSubmitting == freezed
-          ? _value.isSubmitting
-          : isSubmitting // ignore: cast_nullable_to_non_nullable
-              as bool,
       failureOrUser: failureOrUser == freezed
           ? _value.failureOrUser
           : failureOrUser // ignore: cast_nullable_to_non_nullable
@@ -584,7 +575,6 @@ abstract class _$SignInStateCopyWith<$Res>
   $Res call(
       {String phoneNumber,
       String password,
-      bool isSubmitting,
       Option<Either<AuthenticationFailures, User>> failureOrUser});
 }
 
@@ -602,7 +592,6 @@ class __$SignInStateCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
   $Res call({
     Object? phoneNumber = freezed,
     Object? password = freezed,
-    Object? isSubmitting = freezed,
     Object? failureOrUser = freezed,
   }) {
     return _then(_SignInState(
@@ -614,10 +603,6 @@ class __$SignInStateCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      isSubmitting: isSubmitting == freezed
-          ? _value.isSubmitting
-          : isSubmitting // ignore: cast_nullable_to_non_nullable
-              as bool,
       failureOrUser: failureOrUser == freezed
           ? _value.failureOrUser
           : failureOrUser // ignore: cast_nullable_to_non_nullable
@@ -632,7 +617,6 @@ class _$_SignInState implements _SignInState {
   const _$_SignInState(
       {required this.phoneNumber,
       required this.password,
-      required this.isSubmitting,
       required this.failureOrUser});
 
   @override
@@ -640,13 +624,11 @@ class _$_SignInState implements _SignInState {
   @override
   final String password;
   @override
-  final bool isSubmitting;
-  @override
   final Option<Either<AuthenticationFailures, User>> failureOrUser;
 
   @override
   String toString() {
-    return 'SignInState(phoneNumber: $phoneNumber, password: $password, isSubmitting: $isSubmitting, failureOrUser: $failureOrUser)';
+    return 'SignInState(phoneNumber: $phoneNumber, password: $password, failureOrUser: $failureOrUser)';
   }
 
   @override
@@ -658,8 +640,6 @@ class _$_SignInState implements _SignInState {
                 .equals(other.phoneNumber, phoneNumber) &&
             const DeepCollectionEquality().equals(other.password, password) &&
             const DeepCollectionEquality()
-                .equals(other.isSubmitting, isSubmitting) &&
-            const DeepCollectionEquality()
                 .equals(other.failureOrUser, failureOrUser));
   }
 
@@ -668,7 +648,6 @@ class _$_SignInState implements _SignInState {
       runtimeType,
       const DeepCollectionEquality().hash(phoneNumber),
       const DeepCollectionEquality().hash(password),
-      const DeepCollectionEquality().hash(isSubmitting),
       const DeepCollectionEquality().hash(failureOrUser));
 
   @JsonKey(ignore: true)
@@ -681,7 +660,6 @@ abstract class _SignInState implements SignInState {
   const factory _SignInState(
       {required String phoneNumber,
       required String password,
-      required bool isSubmitting,
       required Option<Either<AuthenticationFailures, User>>
           failureOrUser}) = _$_SignInState;
 
@@ -689,8 +667,6 @@ abstract class _SignInState implements SignInState {
   String get phoneNumber;
   @override
   String get password;
-  @override
-  bool get isSubmitting;
   @override
   Option<Either<AuthenticationFailures, User>> get failureOrUser;
   @override

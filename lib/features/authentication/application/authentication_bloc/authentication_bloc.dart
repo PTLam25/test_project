@@ -24,6 +24,7 @@ class AuthenticationBloc
       : super(const AuthenticationState.initial()) {
     on<CheckAuthenticationStatus>(_onCheckAuthenticationStatus);
     on<Logout>(_onLogout);
+    on<ResetData>(_onResetData);
   }
 
   FutureOr<void> _onCheckAuthenticationStatus(
@@ -56,8 +57,22 @@ class AuthenticationBloc
 
     emit(
       const AuthenticationState.unauthenticated(
-        failure: AuthenticationFailures.unauthorized(isRegistered: false),
+        failure: AuthenticationFailures.unauthorized(isRegistered: true),
         isRegistered: true,
+      ),
+    );
+  }
+
+  FutureOr<void> _onResetData(
+    ResetData event,
+    Emitter<AuthenticationState> emit,
+  ) async {
+    await authenticationService.resetData();
+
+    emit(
+      const AuthenticationState.unauthenticated(
+        failure: AuthenticationFailures.unauthorized(isRegistered: false),
+        isRegistered: false,
       ),
     );
   }

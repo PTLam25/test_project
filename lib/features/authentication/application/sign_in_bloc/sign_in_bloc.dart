@@ -57,7 +57,6 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
 
     emit(
       state.copyWith(
-        isSubmitting: true,
         failureOrUser: none(),
       ),
     );
@@ -68,7 +67,6 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
     );
 
     emit(state.copyWith(
-      isSubmitting: false,
       failureOrUser: optionOf(failureOrUser),
     ));
   }

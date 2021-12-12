@@ -124,4 +124,17 @@ class ImplAuthenticationService implements AuthenticationService {
       return left(const AuthenticationFailures.unexpected());
     }
   }
+
+  @override
+  Future<Either<AuthenticationFailures, Unit>> resetData() async {
+    try {
+      final _sharedPreferences = await SharedPreferences.getInstance();
+      _sharedPreferences.remove(_currentUserKey);
+      _sharedPreferences.remove(_isSignInKey);
+
+      return right(unit);
+    } catch (e) {
+      return left(const AuthenticationFailures.unexpected());
+    }
+  }
 }

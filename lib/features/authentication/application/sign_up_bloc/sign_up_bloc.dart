@@ -32,7 +32,6 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   ) async {
     emit(
       state.copyWith(
-        isSubmitting: true,
         failureOrUser: none(),
         failureOrSuccessConfirmation: none(),
       ),
@@ -42,7 +41,6 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
         await authenticationService.confirmCode(event.confirmationCode);
 
     emit(state.copyWith(
-      isSubmitting: false,
       failureOrSuccessConfirmation: some(failureOrSuccessConfirmation),
     ));
   }
@@ -79,7 +77,6 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   ) async {
     emit(
       state.copyWith(
-        isSubmitting: true,
         failureOrUser: none(),
         failureOrSuccessConfirmation: none(),
       ),
@@ -91,7 +88,6 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     );
 
     emit(state.copyWith(
-      isSubmitting: false,
       failureOrUser: some(failureOrUser),
     ));
   }

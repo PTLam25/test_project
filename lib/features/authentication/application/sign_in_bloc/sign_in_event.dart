@@ -3,7 +3,7 @@ part of 'sign_in_bloc.dart';
 @freezed
 class SignInEvent with _$SignInEvent {
   const factory SignInEvent.phoneNumberChanged(String phoneNumber) =
-  PhoneNumberChanged;
+      PhoneNumberChanged;
 
   const factory SignInEvent.passwordChanged(String password) = PasswordChanged;
 
