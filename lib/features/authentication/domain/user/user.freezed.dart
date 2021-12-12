@@ -21,9 +21,7 @@ User _$UserFromJson(Map<String, dynamic> json) {
 class _$UserTearOff {
   const _$UserTearOff();
 
-  _User call(
-      {required String phoneNumber,
-      @JsonKey(ignore: true) String password = ''}) {
+  _User call({required String phoneNumber, required String password}) {
     return _User(
       phoneNumber: phoneNumber,
       password: password,
@@ -41,7 +39,6 @@ const $User = _$UserTearOff();
 /// @nodoc
 mixin _$User {
   String get phoneNumber => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
   String get password => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -53,7 +50,7 @@ mixin _$User {
 abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res>;
-  $Res call({String phoneNumber, @JsonKey(ignore: true) String password});
+  $Res call({String phoneNumber, String password});
 }
 
 /// @nodoc
@@ -87,7 +84,7 @@ abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   factory _$UserCopyWith(_User value, $Res Function(_User) then) =
       __$UserCopyWithImpl<$Res>;
   @override
-  $Res call({String phoneNumber, @JsonKey(ignore: true) String password});
+  $Res call({String phoneNumber, String password});
 }
 
 /// @nodoc
@@ -120,15 +117,13 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_User implements _User {
-  const _$_User(
-      {required this.phoneNumber, @JsonKey(ignore: true) this.password = ''});
+  const _$_User({required this.phoneNumber, required this.password});
 
   factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
 
   @override
   final String phoneNumber;
   @override
-  @JsonKey(ignore: true)
   final String password;
 
   @override
@@ -164,16 +159,14 @@ class _$_User implements _User {
 }
 
 abstract class _User implements User {
-  const factory _User(
-      {required String phoneNumber,
-      @JsonKey(ignore: true) String password}) = _$_User;
+  const factory _User({required String phoneNumber, required String password}) =
+      _$_User;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
   @override
   String get phoneNumber;
   @override
-  @JsonKey(ignore: true)
   String get password;
   @override
   @JsonKey(ignore: true)

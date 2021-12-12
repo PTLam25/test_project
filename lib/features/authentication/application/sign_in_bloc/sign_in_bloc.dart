@@ -43,7 +43,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
   ) {
     emit(
       state.copyWith(
-        password: event.phoneNumber,
+        phoneNumber: event.phoneNumber,
         failureOrUser: none(),
       ),
     );

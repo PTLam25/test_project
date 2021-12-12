@@ -8,7 +8,7 @@ part 'user.g.dart';
 class User with _$User {
   const factory User({
     required String phoneNumber,
-    @JsonKey(ignore: true) @Default('') String password,
+    required String password,
   }) = _User;
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);

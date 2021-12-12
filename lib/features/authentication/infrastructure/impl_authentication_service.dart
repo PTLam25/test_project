@@ -88,6 +88,7 @@ class ImplAuthenticationService implements AuthenticationService {
         final user = User.fromJson(json.decode(encodedUserMap));
 
         if (user.phoneNumber == phoneNumber && user.password == password) {
+          _sharedPreferences.setBool(_isSignInKey, true);
           return right(user);
         }
       }
@@ -118,6 +119,7 @@ class ImplAuthenticationService implements AuthenticationService {
         _isSignInKey,
         true,
       );
+      _sharedPreferences.setBool(_isSignInKey, true);
 
       return right(newUser);
     } catch (e) {

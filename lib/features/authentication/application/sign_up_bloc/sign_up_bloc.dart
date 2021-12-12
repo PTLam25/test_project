@@ -64,7 +64,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   ) {
     emit(
       state.copyWith(
-        password: event.phoneNumber,
+        phoneNumber: event.phoneNumber,
         failureOrUser: none(),
         failureOrSuccessConfirmation: none(),
       ),
